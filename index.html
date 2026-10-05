@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurora OCR</title>
+<meta name="description" content="Aurora OCR — proprietary character recognition and document intelligence engine by Sistema de Autorecluta SL, Spain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+/* Layout: a single proof sheet — glyph specimen strip on top, then facts set like a technical data card, narrow reading column */
+:root {
+  --paper: #f6f7f9;
+  --sheet: #ffffff;
+  --ink: #141a22;
+  --muted: #586272;
+  --rule: #d9dee6;
+  --accent: #1f5fbf;      /* scanner-glass blue */
+  --mark: #e8eef8;
+  --display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1318; --sheet: #161b22; --ink: #e6eaf0; --muted: #9aa5b4; --rule: #2a313b;
+    --accent: #7fb0ff; --mark: #1c2a40; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1318; --sheet: #161b22; --ink: #e6eaf0; --muted: #9aa5b4; --rule: #2a313b;
+  --accent: #7fb0ff; --mark: #1c2a40; color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--body); padding-inline: 16px; padding-block: 0 48px; }
+.wrap { max-width: 46rem; margin: 0 auto; display: grid; gap: 40px; }
+header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 20px 0; flex-wrap: wrap; }
+.brand { font: 600 1.05rem var(--display); letter-spacing: .02em; }
+.brand small { font: 400 .8rem var(--mono); color: var(--muted); margin-left: 8px; }
+.lang { display: flex; gap: 4px; }
+.lang button { font: 500 .78rem var(--mono); letter-spacing: .06em; background: none; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+.lang button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+.lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.strip span { aspect-ratio: 1; display: grid; place-items: center; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font: 500 1.35rem var(--body); background: var(--sheet); }
+.strip span.pair { background: var(--mark); color: var(--accent); }
+
+h1 { font: 600 clamp(2rem, 6vw, 3.1rem)/1.08 var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+.lede { font-size: 1.12rem; color: var(--muted); margin: 14px 0 0; max-width: 38rem; }
+h2 { font: 600 .78rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+section p { margin: 0 0 12px; max-width: 40rem; }
+
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; }
+dl.spec { display: grid; grid-template-columns: minmax(9rem, auto) 1fr; gap: 10px 20px; margin: 0; }
+dl.spec dt { font: 400 .85rem var(--mono); color: var(--muted); }
+dl.spec dd { margin: 0; min-width: 0; font-variant-numeric: tabular-nums; }
+.big { font: 600 1.6rem var(--display); }
+.note { font: 400 .85rem/1.5 var(--body); color: var(--muted); border-top: 1px dashed var(--rule); padding-top: 12px; margin-top: 16px; }
+.note b { color: var(--ink); font-weight: 500; }
+
+ul.products { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+ul.products li { display: grid; grid-template-columns: 11rem 1fr; gap: 4px 16px; padding: 12px 0; border-top: 1px solid var(--rule); }
+ul.products li:last-child { border-bottom: 1px solid var(--rule); }
+ul.products b { font-weight: 500; }
+ul.products span { color: var(--muted); min-width: 0; }
+
+footer { font: 400 .85rem/1.7 var(--mono); color: var(--muted); border-top: 1px solid var(--rule); padding-top: 18px; }
+footer b { color: var(--ink); font-weight: 500; }
+
+@media (max-width: 520px) {
+  dl.spec { grid-template-columns: 1fr; gap: 2px 0; }
+  dl.spec dd { margin-bottom: 10px; }
+  ul.products li { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .strip span.pair { transition: background .2s; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="brand">Aurora OCR<small>rora.es</small></div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="b-en" type="button" aria-pressed="true" data-l="en">EN</button>
+      <button id="b-es" type="button" aria-pressed="false" data-l="es">ES</button>
+    </div>
+  </header>
+
+  <div class="strip" aria-hidden="true">
+    <span>a</span><span>R</span><span>g</span><span class="pair">c</span><span class="pair">C</span><span>5</span><span>Ж</span><span>д</span><span>ы</span><span class="pair">o</span><span class="pair">O</span><span>e</span><span>1</span><span>t</span><span>Q</span><span>я</span>
+  </div>
+
+  <!-- ENGLISH -->
+  <div lang="en" data-lang="en" class="wrap">
+    <section>
+      <h1>Character recognition for difficult real-world documents</h1>
+      <p class="lede">Aurora OCR is a proprietary character-recognition and document-understanding engine for Latin and Cyrillic documents: scans, photos and PDFs. It is the shared core of several document and HR-technology products.</p>
+    </section>
+
+    <section>
+      <h2>Current model</h2>
+      <div class="card">
+        <dl class="spec">
+          <dt>Architecture</dt><dd>ConvNeXt-Small, ImageNet-pretrained, fine-tuned in PyTorch</dd>
+          <dt>Parameters</dt><dd>≈ 49.5 M</dd>
+          <dt>Character classes</dt><dd>110 Latin and Cyrillic letters and digits</dd>
+          <dt>Training data</dt><dd>≈ 1.1 M glyph samples, each validated by a person</dd>
+          <dt>Clean characters</dt><dd><span class="big">≈ 99.85 %</span></dd>
+          <dt>Scan-like characters</dt><dd><span class="big">≈ 99.65 %</span></dd>
+          <dt>Test set</dt><dd>characters from 76 real PDF résumés not used in training</dd>
+        </dl>
+        <p class="note"><b>How accuracy is counted.</b> Upper- and lower-case letters that share one shape (c/C, o/O, s/S and similar) are scored as correct by the character model. Their case is decided afterwards by a separate rule from the geometry of the text line.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What we are working on</h2>
+      <p>Reaching at least 99.8 % under realistic degradation: displaced characters, background artefacts, blur, low contrast, varying stroke weight and phone photos of paper. The training pipeline uses hard-example mining, targeted retraining and simulated scanner and camera damage.</p>
+      <p>The next stage is line-level OCR.</p>
+    </section>
+
+    <section>
+      <h2>Products built on the engine</h2>
+      <ul class="products">
+        <li><b>Resume Miner</b><span>Résumé creation and processing for individuals.</span></li>
+        <li><b>Resume-to-XML</b><span>Structured résumé data for ATS and HR-technology vendors.</span></li>
+        <li><b>Fixic PDF</b><span>Editing of complex PDF documents.</span></li>
+        <li><b>Fixic Scan</b><span>Editing and reflow of scanned documents.</span></li>
+        <li><b>Font recognition</b><span>Identifying the typeface of a document.</span></li>
+      </ul>
+      <p class="note">All products are in closed development.</p>
+    </section>
+  </div>
+
+  <!-- ESPAÑOL -->
+  <div lang="es" data-lang="es" class="wrap" hidden>
+    <section>
+      <h1>Reconocimiento de caracteres para documentos reales difíciles</h1>
+      <p class="lede">Aurora OCR es un motor propio de reconocimiento de caracteres y comprensión de documentos en alfabeto latino y cirílico: escaneos, fotos y PDF. Es el núcleo común de varios productos de documentos y tecnología de RR. HH.</p>
+    </section>
+
+    <section>
+      <h2>Modelo actual</h2>
+      <div class="card">
+        <dl class="spec">
+          <dt>Arquitectura</dt><dd>ConvNeXt-Small, preentrenada en ImageNet, ajustada en PyTorch</dd>
+          <dt>Parámetros</dt><dd>≈ 49,5 M</dd>
+          <dt>Clases</dt><dd>110 letras latinas y cirílicas y dígitos</dd>
+          <dt>Datos</dt><dd>≈ 1,1 M muestras de caracteres, cada una validada por una persona</dd>
+          <dt>Caracteres limpios</dt><dd><span class="big">≈ 99,85 %</span></dd>
+          <dt>Caracteres tipo escaneo</dt><dd><span class="big">≈ 99,65 %</span></dd>
+          <dt>Prueba</dt><dd>caracteres de 76 currículos reales en PDF no usados en el entrenamiento</dd>
+        </dl>
+        <p class="note"><b>Cómo se cuenta la precisión.</b> Las mayúsculas y minúsculas de una misma forma (c/C, o/O, s/S y similares) se cuentan como acierto del modelo de caracteres. La caja se decide después con una regla aparte, por la geometría de la línea de texto.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>En qué trabajamos</h2>
+      <p>Alcanzar al menos un 99,8 % con degradación realista: caracteres desplazados, fondos, desenfoque, bajo contraste, distinto grosor de trazo y fotos de papel hechas con el móvil. El entrenamiento usa minería de ejemplos difíciles, reentrenamiento dirigido y daños simulados de escáner y cámara.</p>
+      <p>La siguiente etapa es el OCR por líneas.</p>
+    </section>
+
+    <section>
+      <h2>Productos sobre el motor</h2>
+      <ul class="products">
+        <li><b>Resume Miner</b><span>Creación y procesamiento de currículos para particulares.</span></li>
+        <li><b>Resume-to-XML</b><span>Datos estructurados de currículos para proveedores de ATS y RR. HH.</span></li>
+        <li><b>Fixic PDF</b><span>Edición de documentos PDF complejos.</span></li>
+        <li><b>Fixic Scan</b><span>Edición y reflujo de documentos escaneados.</span></li>
+        <li><b>Reconocimiento de fuentes</b><span>Identificación del tipo de letra de un documento.</span></li>
+      </ul>
+      <p class="note">Todos los productos están en desarrollo cerrado.</p>
+    </section>
+  </div>
+
+  <footer>
+    <b>Sistema de Autorecluta, S.L.</b><br>
+    CIF B21823760 · Benidorm (Alicante), España<br>
+    info@rora.es
+  </footer>
+</div>
+
+<script>
+(function () {
+  var bloki = document.querySelectorAll("[data-lang]");
+  var knopki = document.querySelectorAll(".lang button");
+  function pokazat(l) {
+    bloki.forEach(function (b) { b.hidden = b.getAttribute("data-lang") !== l; });
+    knopki.forEach(function (k) { k.setAttribute("aria-pressed", k.getAttribute("data-l") === l ? "true" : "false"); });
+    document.documentElement.lang = l;
+    try { localStorage.setItem("lang", l); } catch (e) { /* bez pamjati jazyka - pokazyvaem po umolchaniju */ }
+  }
+  knopki.forEach(function (k) { k.addEventListener("click", function () { pokazat(k.getAttribute("data-l")); }); });
+  var l = null;
+  try { l = localStorage.getItem("lang"); } catch (e) { l = null; }
+  if (!l && (navigator.language || "").slice(0, 2) === "es") l = "es";
+  pokazat(l === "es" ? "es" : "en");
+})();
+</script>
+
+</body>
+</html>
