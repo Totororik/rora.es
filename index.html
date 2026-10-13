@@ -67,6 +67,7 @@ ul.products span { color: var(--muted); min-width: 0; }
 
 footer { font: 400 .85rem/1.7 var(--mono); color: var(--muted); border-top: 1px solid var(--rule); padding-top: 18px; }
 footer b { color: var(--ink); font-weight: 500; }
+footer a { color: inherit; }
 
 @media (max-width: 520px) {
   dl.spec { grid-template-columns: 1fr; gap: 2px 0; }
@@ -179,11 +180,27 @@ footer b { color: var(--ink); font-weight: 500; }
   </div>
 
   <footer>
-    <b>Sistema de Autorecluta, S.L.</b><br>
-    CIF B21823760 · Benidorm (Alicante), España<br>
-    Founder &amp; CEO: Vladimir Rora · <a href="mailto:vladimir@rora.es">vladimir@rora.es</a> · <a href="https://es.linkedin.com/in/vladimir-rora">LinkedIn</a><br>
-    <a href="https://www.linkedin.com/company/aurora-ocr/">Aurora OCR on LinkedIn</a> · info@rora.es
+    <b>Aurora OCR</b> is developed by <b>Sistema de Autorecluta, S.L.</b> (Sistema de Autorecluta, Sociedad Limitada)<br>
+    Spanish limited company · CIF / Tax ID B21823760 · Founded April 2025 · Registered in Alicante, Spain<br>
+    Registered address: Av. Derramador 10, piso 10, pta B, 03503 Benidorm (Alicante), Spain<br>
+    Founder &amp; CEO: <b>Vladimir Rora</b> · <a href="mailto:vladimir@rora.es">vladimir@rora.es</a> ·
+    <a href="https://es.linkedin.com/in/vladimir-rora">Vladimir Rora on LinkedIn</a><br>
+    Company: <a href="https://www.linkedin.com/company/aurora-ocr/">Aurora OCR on LinkedIn</a> ·
+    <a href="mailto:info@rora.es">info@rora.es</a> ·
+    <a href="https://rora.es/Aurora_OCR_pitch_deck.pdf">Pitch deck (PDF)</a><br>
+    © 2025–2026 Sistema de Autorecluta, S.L. · Spain
   </footer>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Organization",
+   "name": "Sistema de Autorecluta, S.L.", "legalName": "Sistema de Autorecluta, Sociedad Limitada",
+   "brand": {"@type": "Brand", "name": "Aurora OCR"}, "url": "https://rora.es", "email": "info@rora.es",
+   "taxID": "B21823760", "foundingDate": "2025-04-04",
+   "address": {"@type": "PostalAddress", "streetAddress": "Av. Derramador 10, piso 10, pta B",
+               "postalCode": "03503", "addressLocality": "Benidorm", "addressRegion": "Alicante", "addressCountry": "ES"},
+   "founder": {"@type": "Person", "name": "Vladimir Rora", "jobTitle": "Founder & CEO", "email": "vladimir@rora.es",
+               "sameAs": "https://es.linkedin.com/in/vladimir-rora"},
+   "sameAs": ["https://www.linkedin.com/company/aurora-ocr/"]}
+  </script>
 </div>
 
 <script>
