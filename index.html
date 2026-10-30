@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Aurora OCR</title>
-<meta name="description" content="Aurora OCR — proprietary character recognition and document intelligence engine by Sistema de Autorecluta SL, Spain.">
+<title>AURORA Labs</title>
+<meta name="description" content="AURORA Labs — document-processing products and proprietary ML technologies by Sistema de Autorecluta SL, Spain.">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <link rel="stylesheet" href="/site.css">
 </head>
@@ -13,103 +13,53 @@
 
 <div class="wrap">
   <header>
-    <div class="brand">Aurora OCR<small>rora.es</small></div>
+    <div class="brand">AURORA Labs<small>rora.es</small></div>
     <div class="lang" role="group" aria-label="Language">
       <button id="b-en" type="button" aria-pressed="true" data-l="en">EN</button>
       <button id="b-es" type="button" aria-pressed="false" data-l="es">ES</button>
     </div>
   </header>
 
-  <div class="strip" aria-hidden="true">
-    <span>a</span><span>R</span><span>g</span><span class="pair">c</span><span class="pair">C</span><span>5</span><span>Ж</span><span>д</span><span>ы</span><span class="pair">o</span><span class="pair">O</span><span>e</span><span>1</span><span>t</span><span>Q</span><span>я</span>
-  </div>
-
   <!-- ENGLISH -->
   <div lang="en" data-lang="en" class="wrap">
     <section>
-      <h1>Character recognition for difficult real-world documents</h1>
-      <p class="lede">Aurora OCR is a proprietary character-recognition and document-understanding engine for Latin and Cyrillic documents: scans, photos and PDFs. It is the shared core of several document and HR-technology products.</p>
+      <h1>Document-processing products and proprietary ML technologies</h1>
+      <p class="lede">Custom neural networks, computer vision, OCR and advanced PDF processing.</p>
     </section>
 
     <section>
-      <h2>Current model</h2>
-      <div class="card">
-        <dl class="spec">
-          <dt>Architecture</dt><dd>ConvNeXt-Small, ImageNet-pretrained, fine-tuned in PyTorch</dd>
-          <dt>Parameters</dt><dd>≈ 49.5 M</dd>
-          <dt>Character classes</dt><dd>110 Latin and Cyrillic letters and digits</dd>
-          <dt>Training data</dt><dd>≈ 1.1 M glyph samples, each validated by a person</dd>
-          <dt>Clean characters</dt><dd><span class="big">≈ 99.85 %</span></dd>
-          <dt>Scan-like characters</dt><dd><span class="big">≈ 99.65 %</span></dd>
-          <dt>Test set</dt><dd>characters from 76 real PDF résumés not used in training</dd>
-        </dl>
-        <p class="note"><b>How accuracy is counted.</b> Upper- and lower-case letters that share one shape (c/C, o/O, s/S and similar) are scored as correct by the character model. Their case is decided afterwards by a separate rule from the geometry of the text line.</p>
+      <div class="kvadraty">
+        <a class="kvadrat" href="/ocr.html"><b>AURORA OCR</b><span>OCR for PDFs and scans: character/text-line recognition, font identification and layout analysis.</span></a>
+        <a class="kvadrat" href="https://pdfit.rora.es"><b>AURORA PDFit</b><span>Word-like online PDF editing that preserves fonts, text flow, structure, backgrounds and graphics.</span></a>
+        <div class="kvadrat"><b>AnyColor PDF</b><span>PDF recolouring for printing with available toner or ink colours.</span></div>
+        <div class="kvadrat"><b>AURORA Resuminer</b><span>Deterministic resume parsing into structured XML for ATS integration and search.</span></div>
+        <div class="kvadrat"><b>AURORA RESUMagic</b><span>Structure-aware PDF resume editor for complex Canva and other templates.</span></div>
       </div>
-    </section>
-
-    <section>
-      <h2>What we are working on</h2>
-      <p>Reaching at least 99.8 % under realistic degradation: displaced characters, background artefacts, blur, low contrast, varying stroke weight and phone photos of paper. The training pipeline uses hard-example mining, targeted retraining and simulated scanner and camera damage.</p>
-      <p>The next stage is line-level OCR.</p>
-    </section>
-
-    <section>
-      <h2>Products built on the engine</h2>
-      <ul class="products">
-        <li><b>Resume Miner</b><span>Résumé creation and processing for individuals.</span></li>
-        <li><b>Resume-to-XML</b><span>Structured résumé data for ATS and HR-technology vendors.</span></li>
-        <li><b>Fixic PDF</b><span>Editing of complex PDF documents.</span></li>
-        <li><b>Fixic Scan</b><span>Editing and reflow of scanned documents.</span></li>
-        <li><b>Font recognition</b><span>Identifying the typeface of a document.</span></li>
-      </ul>
-      <p class="note">All products are in closed development.</p>
+      <p class="note">Products are at different stages; several are approaching launch.</p>
     </section>
   </div>
 
   <!-- ESPAÑOL -->
   <div lang="es" data-lang="es" class="wrap" hidden>
     <section>
-      <h1>Reconocimiento de caracteres para documentos reales difíciles</h1>
-      <p class="lede">Aurora OCR es un motor propio de reconocimiento de caracteres y comprensión de documentos en alfabeto latino y cirílico: escaneos, fotos y PDF. Es el núcleo común de varios productos de documentos y tecnología de RR. HH.</p>
+      <h1>Productos de procesamiento de documentos y tecnologías propias de ML</h1>
+      <p class="lede">Redes neuronales propias, visión artificial, OCR y procesamiento avanzado de PDF.</p>
     </section>
 
     <section>
-      <h2>Modelo actual</h2>
-      <div class="card">
-        <dl class="spec">
-          <dt>Arquitectura</dt><dd>ConvNeXt-Small, preentrenada en ImageNet, ajustada en PyTorch</dd>
-          <dt>Parámetros</dt><dd>≈ 49,5 M</dd>
-          <dt>Clases</dt><dd>110 letras latinas y cirílicas y dígitos</dd>
-          <dt>Datos</dt><dd>≈ 1,1 M muestras de caracteres, cada una validada por una persona</dd>
-          <dt>Caracteres limpios</dt><dd><span class="big">≈ 99,85 %</span></dd>
-          <dt>Caracteres tipo escaneo</dt><dd><span class="big">≈ 99,65 %</span></dd>
-          <dt>Prueba</dt><dd>caracteres de 76 currículos reales en PDF no usados en el entrenamiento</dd>
-        </dl>
-        <p class="note"><b>Cómo se cuenta la precisión.</b> Las mayúsculas y minúsculas de una misma forma (c/C, o/O, s/S y similares) se cuentan como acierto del modelo de caracteres. La caja se decide después con una regla aparte, por la geometría de la línea de texto.</p>
+      <div class="kvadraty">
+        <a class="kvadrat" href="/ocr.html"><b>AURORA OCR</b><span>OCR para PDF y escaneos: reconocimiento de caracteres y líneas, identificación de fuentes y análisis de maquetación.</span></a>
+        <a class="kvadrat" href="https://pdfit.rora.es"><b>AURORA PDFit</b><span>Edición de PDF en línea como en Word, conservando fuentes, flujo del texto, estructura, fondos y gráficos.</span></a>
+        <div class="kvadrat"><b>AnyColor PDF</b><span>Recoloreado de PDF para imprimir con los colores de tóner o tinta disponibles.</span></div>
+        <div class="kvadrat"><b>AURORA Resuminer</b><span>Análisis determinista de currículos a XML estructurado para integración con ATS y búsqueda.</span></div>
+        <div class="kvadrat"><b>AURORA RESUMagic</b><span>Editor de currículos en PDF que respeta la estructura de plantillas complejas de Canva y otras.</span></div>
       </div>
-    </section>
-
-    <section>
-      <h2>En qué trabajamos</h2>
-      <p>Alcanzar al menos un 99,8 % con degradación realista: caracteres desplazados, fondos, desenfoque, bajo contraste, distinto grosor de trazo y fotos de papel hechas con el móvil. El entrenamiento usa minería de ejemplos difíciles, reentrenamiento dirigido y daños simulados de escáner y cámara.</p>
-      <p>La siguiente etapa es el OCR por líneas.</p>
-    </section>
-
-    <section>
-      <h2>Productos sobre el motor</h2>
-      <ul class="products">
-        <li><b>Resume Miner</b><span>Creación y procesamiento de currículos para particulares.</span></li>
-        <li><b>Resume-to-XML</b><span>Datos estructurados de currículos para proveedores de ATS y RR. HH.</span></li>
-        <li><b>Fixic PDF</b><span>Edición de documentos PDF complejos.</span></li>
-        <li><b>Fixic Scan</b><span>Edición y reflujo de documentos escaneados.</span></li>
-        <li><b>Reconocimiento de fuentes</b><span>Identificación del tipo de letra de un documento.</span></li>
-      </ul>
-      <p class="note">Todos los productos están en desarrollo cerrado.</p>
+      <p class="note">Los productos están en distintas fases; varios están cerca del lanzamiento.</p>
     </section>
   </div>
 
   <footer>
-    <b>Aurora OCR</b> is developed by <b>Sistema de Autorecluta, S.L.</b> (Sistema de Autorecluta, Sociedad Limitada)<br>
+    <b>AURORA Labs</b> is developed by <b>Sistema de Autorecluta, S.L.</b> (Sistema de Autorecluta, Sociedad Limitada)<br>
     Spanish limited company · CIF / Tax ID B21823760 · Founded April 2025 · Registered in Alicante, Spain<br>
     Registered address: Av. Derramador 10, piso 10, pta B, 03503 Benidorm (Alicante), Spain<br>
     Founder &amp; CEO: <b>Vladimir Rora</b> · <a href="mailto:vladimir@rora.es">vladimir@rora.es</a> ·
@@ -123,7 +73,7 @@
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "Organization",
    "name": "Sistema de Autorecluta, S.L.", "legalName": "Sistema de Autorecluta, Sociedad Limitada",
-   "brand": {"@type": "Brand", "name": "Aurora OCR"}, "url": "https://rora.es", "email": "info@rora.es",
+   "brand": {"@type": "Brand", "name": "AURORA Labs"}, "url": "https://rora.es", "email": "info@rora.es",
    "taxID": "B21823760", "foundingDate": "2025-04-04",
    "address": {"@type": "PostalAddress", "streetAddress": "Av. Derramador 10, piso 10, pta B",
                "postalCode": "03503", "addressLocality": "Benidorm", "addressRegion": "Alicante", "addressCountry": "ES"},

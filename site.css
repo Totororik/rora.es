@@ -77,3 +77,14 @@ footer a { color: inherit; }
 .doc a, section a { color: var(--accent); }
 .updated { font: 400 .8rem var(--mono); color: var(--muted); margin-top: 10px; }
 nav.links { margin-top: 6px; }
+
+/* Home page: one square per product */
+.kvadraty { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(13rem, 100%), 1fr)); gap: 12px; }
+.kvadrat { aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; min-width: 0;
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 18px; color: var(--ink); text-decoration: none; }
+.kvadrat b { font: 600 1.25rem/1.15 var(--display); }
+.kvadrat span { font-size: .9rem; line-height: 1.45; color: var(--muted); }
+a.kvadrat:hover { border-color: var(--accent); }
+a.kvadrat:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+a.kvadrat b::after { content: " →"; color: var(--accent); }
+@media (max-width: 520px) { .kvadrat { aspect-ratio: auto; min-height: 9rem; } }
