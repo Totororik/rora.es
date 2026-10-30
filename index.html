@@ -8,76 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap">
-<style>
-/* Layout: a single proof sheet — glyph specimen strip on top, then facts set like a technical data card, narrow reading column */
-:root {
-  --paper: #f6f7f9;
-  --sheet: #ffffff;
-  --ink: #141a22;
-  --muted: #586272;
-  --rule: #d9dee6;
-  --accent: #1f5fbf;      /* scanner-glass blue */
-  --mark: #e8eef8;
-  --display: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
-  --body: "IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0f1318; --sheet: #161b22; --ink: #e6eaf0; --muted: #9aa5b4; --rule: #2a313b;
-    --accent: #7fb0ff; --mark: #1c2a40; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0f1318; --sheet: #161b22; --ink: #e6eaf0; --muted: #9aa5b4; --rule: #2a313b;
-  --accent: #7fb0ff; --mark: #1c2a40; color-scheme: dark;
-}
-body { background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--body); padding-inline: 16px; padding-block: 0 48px; }
-.wrap { max-width: 46rem; margin: 0 auto; display: grid; gap: 40px; }
-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-block: 20px 0; flex-wrap: wrap; }
-.brand { font: 600 1.05rem var(--display); letter-spacing: .02em; }
-.brand small { font: 400 .8rem var(--mono); color: var(--muted); margin-left: 8px; }
-.lang { display: flex; gap: 4px; }
-.lang button { font: 500 .78rem var(--mono); letter-spacing: .06em; background: none; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 4px 10px; cursor: pointer; }
-.lang button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
-.lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-.strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
-.strip span { aspect-ratio: 1; display: grid; place-items: center; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font: 500 1.35rem var(--body); background: var(--sheet); }
-.strip span.pair { background: var(--mark); color: var(--accent); }
-
-h1 { font: 600 clamp(2rem, 6vw, 3.1rem)/1.08 var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
-.lede { font-size: 1.12rem; color: var(--muted); margin: 14px 0 0; max-width: 38rem; }
-h2 { font: 600 .78rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
-section p { margin: 0 0 12px; max-width: 40rem; }
-
-.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; }
-dl.spec { display: grid; grid-template-columns: minmax(9rem, auto) 1fr; gap: 10px 20px; margin: 0; }
-dl.spec dt { font: 400 .85rem var(--mono); color: var(--muted); }
-dl.spec dd { margin: 0; min-width: 0; font-variant-numeric: tabular-nums; }
-.big { font: 600 1.6rem var(--display); }
-.note { font: 400 .85rem/1.5 var(--body); color: var(--muted); border-top: 1px dashed var(--rule); padding-top: 12px; margin-top: 16px; }
-.note b { color: var(--ink); font-weight: 500; }
-
-ul.products { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
-ul.products li { display: grid; grid-template-columns: 11rem 1fr; gap: 4px 16px; padding: 12px 0; border-top: 1px solid var(--rule); }
-ul.products li:last-child { border-bottom: 1px solid var(--rule); }
-ul.products b { font-weight: 500; }
-ul.products span { color: var(--muted); min-width: 0; }
-
-footer { font: 400 .85rem/1.7 var(--mono); color: var(--muted); border-top: 1px solid var(--rule); padding-top: 18px; }
-footer b { color: var(--ink); font-weight: 500; }
-footer a { color: inherit; }
-
-@media (max-width: 520px) {
-  dl.spec { grid-template-columns: 1fr; gap: 2px 0; }
-  dl.spec dd { margin-bottom: 10px; }
-  ul.products li { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .strip span.pair { transition: background .2s; }
-}
-</style>
+<link rel="stylesheet" href="/site.css">
 </head>
 <body>
 
@@ -188,7 +119,8 @@ footer a { color: inherit; }
     Company: <a href="https://www.linkedin.com/company/aurora-ocr/">Aurora OCR on LinkedIn</a> ·
     <a href="mailto:info@rora.es">info@rora.es</a> ·
     <a href="https://rora.es/Aurora_OCR_pitch_deck.pdf">Pitch deck (PDF)</a><br>
-    © 2025–2026 Sistema de Autorecluta, S.L. · Spain
+    © 2025–2026 Sistema de Autorecluta, S.L. · Spain<br>
+    <span class="links"><a href="/legal.html">Legal notice / Aviso legal</a> · <a href="/privacy.html">Privacy / Privacidad</a></span>
   </footer>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@type": "Organization",
@@ -203,23 +135,7 @@ footer a { color: inherit; }
   </script>
 </div>
 
-<script>
-(function () {
-  var bloki = document.querySelectorAll("[data-lang]");
-  var knopki = document.querySelectorAll(".lang button");
-  function pokazat(l) {
-    bloki.forEach(function (b) { b.hidden = b.getAttribute("data-lang") !== l; });
-    knopki.forEach(function (k) { k.setAttribute("aria-pressed", k.getAttribute("data-l") === l ? "true" : "false"); });
-    document.documentElement.lang = l;
-    try { localStorage.setItem("lang", l); } catch (e) { /* bez pamjati jazyka - pokazyvaem po umolchaniju */ }
-  }
-  knopki.forEach(function (k) { k.addEventListener("click", function () { pokazat(k.getAttribute("data-l")); }); });
-  var l = null;
-  try { l = localStorage.getItem("lang"); } catch (e) { l = null; }
-  if (!l && (navigator.language || "").slice(0, 2) === "es") l = "es";
-  pokazat(l === "es" ? "es" : "en");
-})();
-</script>
+<script src="/lang.js"></script>
 
 </body>
 </html>
