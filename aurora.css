@@ -52,7 +52,8 @@ a { color: inherit; }
   padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
   padding-block: 0 36px; display: grid; gap: clamp(28px, 4.5vh, 48px); }
 header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 20px; }
-.mark { font: 700 1.02rem var(--display); letter-spacing: .03em; text-decoration: none; }
+.mark { display: flex; align-items: baseline; flex-wrap: wrap; gap: 2px 12px; font: 700 1.02rem var(--display); letter-spacing: .03em; text-decoration: none; }
+.mark .tagline { font: 500 .86rem var(--body); letter-spacing: .01em; color: var(--ink-faint); padding-left: 12px; border-left: 1px solid rgba(255,255,255,.18); }
 .mark i { font-style: normal; color: var(--green); }
 .lang { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-edge);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
@@ -153,6 +154,8 @@ footer a:hover { color: var(--ink); }
   .tile p { font-size: .88rem; }
   .tag { top: 14px; right: 14px; }
   .btn { width: 100%; justify-content: center; }
+  .mark { flex-direction: column; }
+  .mark .tagline { padding-left: 0; border-left: 0; font-size: .78rem; }
   h1 { font-size: min(2.4rem, 8.4vw); }
 }
 @media (prefers-reduced-motion: reduce) {
