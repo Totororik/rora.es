@@ -65,6 +65,8 @@ header { display: flex; justify-content: space-between; align-items: center; gap
 .hero { position: relative; display: grid; justify-items: start; padding-top: clamp(16px, 7vh, 72px); padding-bottom: clamp(0px, 2vh, 16px); }
 h1 { position: relative; margin: 0; max-width: none; font: 800 clamp(2rem, 4.1vw, 3.9rem)/1.06 var(--display); letter-spacing: -.03em; text-wrap: balance; }
 h1 .line { display: block; }
+/* "machine learning" on wide screens, "ML" on phones so the coloured line stays one line */
+h1 .w.short { display: none; }
 h1 .w { display: inline-block; animation: read 1s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(var(--i) * 80ms + 200ms); }
 h1 .w.hl { color: transparent; -webkit-background-clip: text; background-clip: text;
   background-image: linear-gradient(100deg, var(--green), var(--teal) 50%, var(--violet)); }
@@ -157,6 +159,8 @@ footer a:hover { color: var(--ink); }
   .mark { flex-direction: column; }
   .mark .tagline { padding-left: 0; border-left: 0; font-size: .78rem; }
   h1 { font-size: min(2.4rem, 8.4vw); }
+  h1 .w.long { display: none; }
+  h1 .w.short { display: inline-block; }
 }
 @media (prefers-reduced-motion: reduce) {
   .band, .tile::before, .tag.live::before, h1 .w, .tile { animation: none; }
