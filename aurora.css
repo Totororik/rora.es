@@ -348,3 +348,7 @@ ol.steps li { align-content: start; }
   .demo .new { animation: none; max-width: none; }
   .demo .good .box { animation: none; height: 116px; }
 }
+/* lines never shrink: in a fixed frame the new line must spill over the border, as it does in ordinary editors */
+.demo .box > *, .demo .next > * { flex-shrink: 0; }
+.demo .bad .box { position: relative; z-index: 1; }
+.demo .bad .new { color: #b4233a; }
