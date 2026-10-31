@@ -212,3 +212,7 @@ h1 { overflow-wrap: break-word; hyphens: auto; }
 .card h3 { margin: 0 0 8px; font: 700 1.1rem/1.2 var(--display); }
 .card p { margin: 0; font-size: .95rem; line-height: 1.5; color: var(--ink-soft); }
 @media (max-width: 900px) { .cards { grid-template-columns: 1fr; } }
+/* letter strip reels (strip.js) */
+.strip span { position: relative; overflow: hidden; }
+.strip .reel { position: absolute; inset: 0 0 auto; display: flex; flex-direction: column; font-style: normal; will-change: transform; }
+.strip .reel b { height: var(--h); display: grid; place-items: center; font: inherit; }
