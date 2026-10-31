@@ -353,7 +353,10 @@ ol.steps li { align-content: start; }
 .demo .e2 > div { display: flex; justify-content: space-between; }
 .demo .e1 { padding: calc(6 * var(--k)) 0 0 calc(40 * var(--k)); font-size: calc(10 * var(--k)); line-height: calc(12.5 * var(--k)); }
 .demo .e2 { margin: 0 calc(45.5 * var(--k)) 0 calc(30 * var(--k)); font-size: calc(7.5 * var(--k)); line-height: calc(14.5 * var(--k)); background: repeating-linear-gradient(to bottom, transparent 0 calc(13.5 * var(--k)), #d8d8d8 calc(13.5 * var(--k)) calc(14.5 * var(--k))); }
-.demo .e3 { padding: calc(.7 * var(--k)) 0 0 calc(37.5 * var(--k)); font-size: calc(8 * var(--k)); line-height: calc(12 * var(--k)); font-weight: 700; color: #fff; }
-.demo .e3:empty { padding-top: 0; }
+.demo .e3 { padding: 0 0 0 calc(37.5 * var(--k)); font-size: calc(8 * var(--k)); line-height: calc(12 * var(--k)); font-weight: 700; color: #fff; }
 .demo .bad .ed { font-family: Arial, Helvetica, sans-serif; font-weight: 400; color: #c8102e; background: none; }
 .demo .bad .e3 { font-weight: 700; color: #ff5470; }
+/* the tip's own last lines are live text: on the left they slide out of the fixed box onto the next block */
+.demo .bad .g3 { height: calc(34 * var(--k)); }
+.demo .e3 .keep { font-family: 'Plus Jakarta Sans', var(--body); color: #fff; }
+.demo .bad .e3 .keep { text-shadow: 0 0 calc(1 * var(--k)) #00534e, 0 0 calc(1 * var(--k)) #00534e, 0 0 calc(2 * var(--k)) #00534e; }

@@ -3,7 +3,7 @@
 // a script, not css keyframes: it works the same in every browser, including safari on iphone.
 (function () {
   var TOP = ['Persona de contacto: Ana López', 'Teléfono: 600 000 000', 'Email: ana@ejemplo.es', 'Horario: de 9:00 a 18:00'];
-  var TIP = ['Y desenchufa los aparatos', 'en standby: ahorrarás hasta', 'un 10 % en tu factura.'];
+  var TIP = ['luz del sol. Apaga lo que no uses', 'y desenchufa los aparatos en', 'standby. Deja entrar también la']; // typed into the middle of the tip
   var ROWS = [['Alquiler de contador', '0,00€'], ['Bono social', '0,00€'], ['Servicio de mantenimiento', '0,00€'],
     ['Energía reactiva', '0,00€'], ['Compensación de excedentes', '0,00€']];
   var CHAR = 45; // ms per typed letter
@@ -31,7 +31,7 @@
   }
   function newLine(boxes) {
     var lines = [];
-    each(boxes, function (box) { var d = document.createElement('div'); box.appendChild(d); lines.push(d); });
+    each(boxes, function (box) { var d = document.createElement('div'); box.insertBefore(d, box.querySelector('.keep')); lines.push(d); });
     return lines;
   }
 
@@ -41,7 +41,7 @@
     for (;;) {
       each(top, function (b) { b.textContent = ''; });
       each(table, function (b) { b.textContent = ''; });
-      each(tip, function (b) { b.textContent = ''; });
+      each(tip, function (b) { each(b.querySelectorAll('div:not(.keep)'), function (d) { d.remove(); }); });
       await wait(1500);
       for (var i = 0; i < TOP.length; i++) {
         await typeInto(newLine(top), TOP[i]);
