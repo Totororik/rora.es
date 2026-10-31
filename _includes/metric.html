@@ -1,0 +1,3 @@
+{%- assign L = page.lang | default: "en" -%}
+{%- assign m = site.data.metrics[include.id] -%}
+        <div class="score"><b>{{ m.value[L] }}</b><span>{{ m.label[L] }}</span><small>{{ m.def[L] }}</small></div>

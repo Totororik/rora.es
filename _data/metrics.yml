@@ -1,0 +1,50 @@
+# one source for every number on the site; "verified" is the date the number was last checked against our own records
+fonts:
+  verified: 2026-10-31
+  value: { en: "219,171", es: "219.171" }
+  label: { en: "unique fonts", es: "fuentes únicas" }
+  def:
+    en: "Consolidated from 374,936 font files: copies of one font are counted once."
+    es: "A partir de 374.936 archivos de fuentes: las copias de una misma fuente cuentan una vez."
+fingerprints:
+  verified: 2026-10-23
+  value: { en: "13.3 M", es: "13,3 M" }
+  label: { en: "character fingerprints", es: "huellas de caracteres" }
+  def:
+    en: "A compact description of one character's shape in one font, used to find fonts and look-alike letters."
+    es: "Una descripción compacta de la forma de un carácter en una fuente; sirve para encontrar fuentes y letras parecidas."
+glyphs:
+  verified: 2026-10-31
+  value: { en: "≈ 13.8 M", es: "≈ 13,8 M" }
+  label: { en: "validated glyphs", es: "glifos validados" }
+  def:
+    en: "11.7 M letters, 1.9 M digits and 0.2 M other signs, each labelled from a trusted font source, checked by a person or confirmed by several independent readers."
+    es: "11,7 M letras, 1,9 M dígitos y 0,2 M otros signos, cada uno etiquetado desde una fuente fiable, revisado por una persona o confirmado por varios lectores independientes."
+characters:
+  verified: 2026-10-31
+  value: { en: "1,643", es: "1.643" }
+  label: { en: "characters in our newest model", es: "caracteres en nuestro modelo más nuevo" }
+  def:
+    en: "Latin, Cyrillic and Greek letters with accents, digits and signs; letters of one shape share a class, so the model has 1,593 classes."
+    es: "Letras latinas, cirílicas y griegas con acentos, dígitos y signos; las letras de una misma forma comparten clase, así que el modelo tiene 1.593 clases."
+acc_clean:
+  verified: 2026-10-04
+  value: { en: "≈ 99.85 %", es: "≈ 99,85 %" }
+  label: { en: "clean characters", es: "caracteres limpios" }
+  def:
+    en: "Character-level accuracy on our internal test set; model of October 2026."
+    es: "Precisión por carácter en nuestro conjunto de prueba interno; modelo de octubre de 2026."
+acc_scan:
+  verified: 2026-10-04
+  value: { en: "≈ 99.65 %", es: "≈ 99,65 %" }
+  label: { en: "scan-like characters", es: "caracteres tipo escaneo" }
+  def:
+    en: "The same test with scanner-like damage added to the characters."
+    es: "La misma prueba con daños de escáner añadidos a los caracteres."
+acc_lines:
+  verified: 2026-10-31
+  value: { en: "≈ 93–94 %", es: "≈ 93–94 %" }
+  label: { en: "text lines, preliminary", es: "líneas de texto, preliminar" }
+  def:
+    en: "Preliminary result of our next stage, line-level OCR."
+    es: "Resultado preliminar de nuestra siguiente etapa, el OCR por líneas."

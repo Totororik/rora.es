@@ -1,106 +1,62 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AURORA OCR — character recognition for difficult real-world documents</title>
-<meta name="description" content="AURORA OCR is a proprietary character-recognition and document-understanding engine for Latin and Cyrillic scans, photos and PDFs. ≈ 99.85 % on clean characters, ≈ 99.65 % on scan-like characters.">
-<link rel="canonical" href="https://rora.es/ocr.html">
-<link rel="alternate" hreflang="en" href="https://rora.es/ocr.html">
-<link rel="alternate" hreflang="es" href="https://rora.es/es/ocr.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="AURORA Ai.Lab">
-<meta property="og:title" content="AURORA OCR — character recognition for difficult real-world documents">
-<meta property="og:url" content="https://rora.es/ocr.html">
-<meta property="og:image" content="https://rora.es/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#04060c">
-<link rel="preload" href="/fonts/syne-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/aurora.css">
-<link rel="stylesheet" href="/aurora.css">
-</head>
-<body>
-<div class="sky" aria-hidden="true">
-  <div class="band b1"></div><div class="band b2"></div><div class="band b3"></div><div class="band b4"></div>
-  <div class="stars"></div>
-</div>
+---
+lang: en
+alt: /es/ocr.html
+section: business
+strip: true
+title: "AURORA OCR — character recognition for difficult real-world documents"
+description: "AURORA OCR is a proprietary character-recognition engine for scans, photos and PDFs in Latin and Cyrillic script: ≈ 99.85 % on clean characters and ≈ 99.65 % on scan-like characters."
+---
+    <section class="hero prod">
+      <a class="back" href="/business/">← For business</a>
+      <h1><span class="line"><span class="w hl" style="--i:0">AURORA OCR</span></span> <span class="line"><span class="w" style="--i:1">Character recognition for difficult real-world documents</span></span><span class="scan" aria-hidden="true"></span></h1>
+      <p class="prod-lede">A proprietary character-recognition and document-understanding engine for Latin and Cyrillic documents: scans, photos and PDFs. Our newest model also reads Greek.</p>
+      <div class="ctas"><a class="btn" href="/contact/#ocr">Discuss OCR for your workflow <span class="go" aria-hidden="true">→</span></a><a class="btn ghost" href="/ml.html">Our data and training</a></div>
+    </section>
 
-<div class="page">
-  <header>
-    <a class="mark" href="/"><span>AURORA <i>Ai.Lab</i></span><span class="tagline">PDF &amp; scan intelligence</span></a>
-    <nav class="lang" aria-label="Language">
-      <a href="/ocr.html" hreflang="en" lang="en" aria-current="true">EN</a>
-      <a href="/es/ocr.html" hreflang="es" lang="es">ES</a>
-    </nav>
-  </header>
-
-  <main class="hero prod">
-    <a class="back" href="/">← All products</a>
-    <h1><span class="line"><span class="w hl" style="--i:0">AURORA</span> <span class="w hl" style="--i:1">OCR</span></span> <span class="line"><span class="w" style="--i:2">Character</span> <span class="w" style="--i:3">recognition</span> <span class="w" style="--i:4">for</span> <span class="w" style="--i:5">difficult</span> <span class="w" style="--i:6">real-world</span> <span class="w" style="--i:7">documents</span></span><span class="scan" aria-hidden="true"></span></h1>
-    <p class="prod-lede">A proprietary character-recognition and document-understanding engine for Latin and Cyrillic documents: scans, photos and PDFs. It is the shared core of several document and HR-technology products.</p>
-  </main>
-
-  <div class="strip" aria-hidden="true">
-    <span>a</span><span>R</span><span>g</span><span class="pair">c</span><span class="pair">C</span><span>5</span><span>Ж</span><span>д</span><span>ы</span><span class="pair">o</span><span class="pair">O</span><span>e</span><span>1</span><span>t</span><span>Q</span><span>я</span>
-  </div>
-
-  <section class="sec">
-    <h2>Current model</h2>
-    <div class="panel">
-      <div class="scores">
-        <div class="score"><b>≈ 99.85 %</b><span>clean characters</span></div>
-        <div class="score"><b>≈ 99.65 %</b><span>scan-like characters</span></div>
-      </div>
-      <dl class="spec">
-        <dt>Architecture</dt><dd>ConvNeXt-Small, ImageNet-pretrained, fine-tuned in PyTorch</dd>
-        <dt>Parameters</dt><dd>≈ 49.5 M</dd>
-        <dt>Characters</dt><dd>1,643 in the newest model: Latin, Cyrillic and Greek letters with accents, digits and signs</dd>
-        <dt>Training data</dt><dd>≈ 1.1 M glyph samples, each validated by a person</dd>
-        <dt>Test set</dt><dd>internal test set of real PDF documents, never used in training</dd>
-      </dl>
-      <p class="note"><b>How accuracy is counted.</b> Upper- and lower-case letters that share one shape (c/C, o/O, s/S and similar) are scored as correct by the character model. Their case is decided afterwards by a separate rule from the geometry of the text line.</p>
+    <div class="strip" aria-hidden="true">
+      <span>a</span><span>R</span><span>g</span><span class="pair">c</span><span class="pair">C</span><span>5</span><span>Ж</span><span>д</span><span>ы</span><span class="pair">o</span><span class="pair">O</span><span>e</span><span>1</span><span>t</span><span>Q</span><span>я</span>
     </div>
-  </section>
 
-  <section class="sec">
-    <h2>Training data we built</h2>
-    <div class="panel">
-      <div class="scores four">
-        <div class="score"><b>219,171</b><span>unique fonts, consolidated from 374,936 font files</span></div>
-        <div class="score"><b>13.3 M</b><span>character fingerprints</span></div>
-        <div class="score"><b>≈ 13.8 M</b><span>validated glyphs: 11.7 M letters, 1.9 M digits and 0.2 M other signs, checked and labelled</span></div>
-        <div class="score"><b>1,643</b><span>characters our newest model reads: Latin, Cyrillic and Greek letters with accents, digits and signs</span></div>
+    <section class="sec">
+      <h2>Recognition performance</h2>
+      <div class="panel">
+        <div class="scores three">
+{% include metric.html id="acc_clean" %}
+{% include metric.html id="acc_scan" %}
+{% include metric.html id="acc_lines" %}
+        </div>
+        <p class="note"><b>How to read these numbers.</b> They are character-level and text-line results, not full-page or end-to-end document OCR accuracy. Upper- and lower-case letters that share one shape (c/C, o/O, s/S and similar) are scored as correct by the character model; their case is decided afterwards by a separate rule from the geometry of the text line.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="sec">
-    <h2>How we measure</h2>
-    <p>We test on independent public benchmarks, not only on our own data: <b>olmOCR-bench</b> (thousands of real PDFs with tables, formulas, headers and small print) and <b>UNLV</b> (scanned business documents). Our processing methods are compared against 7–8 established PDF readers and OCR tools.</p>
-    <p>Benchmark results will be published here.</p>
-  </section>
+    <section class="sec">
+      <h2>The model</h2>
+      <div class="panel">
+        <dl class="spec">
+          <dt>Architecture</dt><dd>ConvNeXt-Small, ImageNet-pretrained, fine-tuned in PyTorch</dd>
+          <dt>Parameters</dt><dd>≈ 49.5 M</dd>
+          <dt>Training data</dt><dd>≈ 1.1 M glyph samples, each validated by a person (the model measured above)</dd>
+          <dt>Test set</dt><dd>internal test set of real PDF documents, never used in training</dd>
+          <dt>Newest model</dt><dd>1,643 characters: Latin, Cyrillic and Greek letters with accents, digits and signs. Its accuracy will be published after the same evaluation.</dd>
+        </dl>
+      </div>
+    </section>
 
-  <section class="sec">
-    <h2>What we are working on</h2>
-    <p>Reaching at least 99.8 % under realistic degradation: displaced characters, background artefacts, blur, low contrast, varying stroke weight and phone photos of paper. The training pipeline uses hard-example mining, targeted retraining and simulated scanner and camera damage.</p>
-    <p>The next stage is line-level OCR: preliminary text-line accuracy is about 93–94 %.</p>
-  </section>
+    <section class="sec">
+      <h2>How we evaluate</h2>
+      <p>We test on independent public benchmarks, not only on our own data: <b>olmOCR-bench</b> (real PDFs) and <b>UNLV</b> (scanned business documents). Our methods are compared with 7–8 established PDF readers and OCR tools, category by category:</p>
+      <ul class="chips"><li>Small print</li><li>Scan quality</li><li>Tables</li><li>Formulas</li><li>Multi-column pages</li><li>Headers and footers</li></ul>
+      <p>Benchmark results are being prepared for publication.</p>
+    </section>
 
-  <section class="sec">
-    <h2>Products built on the engine</h2>
-    <p><a class="more-link" href="/">All AURORA Ai.Lab products →</a></p>
-  </section>
+    <section class="sec">
+      <h2>What we are working on</h2>
+      <p>Reaching at least 99.8 % under realistic degradation: displaced characters, background artefacts, blur, low contrast, varying stroke weight and phone photos of paper. The training pipeline uses hard-example mining, targeted retraining and simulated scanner and camera damage.</p>
+      <p>The next stage is line-level OCR: preliminary text-line accuracy is about 93–94 %.</p>
+    </section>
 
-  <footer>
-    <b>AURORA Ai.Lab</b> by <b>Sistema de Autorecluta, S.L.</b><br>
-    CIF / Tax ID B21823760 · Founded April 2025<br>
-    Founder &amp; CEO: <b>Vladimir Rora</b> · <a href="mailto:vladimir@rora.es">vladimir@rora.es</a><br>
-    LinkedIn: <a href="https://www.linkedin.com/company/aurora-ocr-lab/">AURORA Ai.Lab</a> ·
-    <a href="mailto:info@rora.es">info@rora.es</a><br>
-    © 2025–2026 Sistema de Autorecluta, S.L. · Spain<br>
-    <a href="/legal.html">Legal notice / Aviso legal</a> · <a href="/privacy.html">Privacy / Privacidad</a>
-  </footer>
-</div>
-<script src="/strip.js" defer></script>
-</body>
-</html>
+    <section class="sec final panel">
+      <h2>Need OCR for a document workflow?</h2>
+      <p>Tell us about your documents, languages and processing requirements. We will discuss whether AURORA OCR fits your use case.</p>
+      <div class="ctas"><a class="btn" href="/contact/#ocr">Discuss your OCR requirements <span class="go" aria-hidden="true">→</span></a></div>
+    </section>

@@ -1,0 +1,26 @@
+  <header class="top">
+    <a class="mark" href="{{ P }}/"><span>AURORA <i>Ai.Lab</i></span><span class="tagline">{{ T.tagline }}</span></a>
+    <nav class="nav" aria-label="{{ T.nav_label }}">
+      <a href="{{ P }}/individuals/"{% if page.section == "people" %} aria-current="page"{% endif %}>{{ T.people }}</a>
+      <a href="{{ P }}/business/"{% if page.section == "business" %} aria-current="page"{% endif %}>{{ T.business }}</a>
+      <a href="{{ P }}/contact/"{% if page.section == "contact" %} aria-current="page"{% endif %}>{{ T.contact }}</a>
+    </nav>
+    <nav class="lang" aria-label="{{ T.lang_label }}">
+      <a href="{{ en_url }}" hreflang="en" lang="en"{% if L == "en" %} aria-current="true"{% endif %}>EN</a>
+      <a href="{{ es_url }}" hreflang="es" lang="es"{% if L == "es" %} aria-current="true"{% endif %}>ES</a>
+    </nav>
+    <a class="cta-top" href="{{ S.pdfit }}">{{ T.try_pdfit }}</a>
+    <details class="menu">
+      <summary aria-label="{{ T.menu }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
+      <div class="menu-panel">
+        <div><b>{{ T.personal_tools }}</b>
+          {%- for p in site.data.products %}{% if p.audience == "people" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}
+          <a href="{{ P }}/individuals/">{{ T.people }} →</a></div>
+        <div><b>{{ T.business_tech }}</b>
+          {%- for p in site.data.products %}{% if p.audience == "business" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}
+          <a href="{{ P }}/business/">{{ T.business }} →</a></div>
+        <div><b>{{ T.company }}</b><a href="{{ P }}/contact/">{{ T.contact }}</a></div>
+        <a class="btn" href="{{ S.pdfit }}">{{ T.try_pdfit }} <span class="go" aria-hidden="true">→</span></a>
+      </div>
+    </details>
+  </header>

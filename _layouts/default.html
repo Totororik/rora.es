@@ -1,0 +1,67 @@
+<!doctype html>
+{%- assign L = page.lang | default: "en" -%}
+{%- assign T = site.data.t[L] -%}
+{%- assign S = site.data.site -%}
+{%- if L == "es" -%}{%- assign P = "/es" -%}{%- assign en_url = page.alt -%}{%- assign es_url = page.url -%}
+{%- else -%}{%- assign P = "" -%}{%- assign en_url = page.url -%}{%- assign es_url = page.alt -%}{%- endif %}
+<html lang="{{ L }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="en" href="{{ site.url }}{{ en_url }}">
+<link rel="alternate" hreflang="es" href="{{ site.url }}{{ es_url }}">
+{%- if page.home %}
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
+{%- endif %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ S.brand }}">
+<meta property="og:locale" content="{% if L == 'es' %}es_ES{% else %}en_GB{% endif %}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#04060c">
+<link rel="preload" href="/fonts/syne-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/aurora.css">
+<link rel="stylesheet" href="/aurora.css">
+</head>
+<body>
+<a class="skip" href="#main">{{ T.skip }}</a>
+<div class="sky" aria-hidden="true">
+  <div class="band b1"></div><div class="band b2"></div><div class="band b3"></div><div class="band b4"></div>
+  <div class="stars"></div>
+</div>
+
+<div class="page">
+{% include header.html %}
+  <main id="main" class="main">
+{{ content }}
+  </main>
+{% include footer.html %}
+</div>
+{%- if page.home %}
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization",
+ "name": "{{ S.legal }}", "legalName": "Sistema de Autorecluta, Sociedad Limitada",
+ "brand": {"@type": "Brand", "name": "{{ S.brand }}"}, "url": "{{ site.url }}", "email": "{{ S.email }}",
+ "taxID": "{{ S.cif }}", "foundingDate": "2025-04-04",
+ "address": {"@type": "PostalAddress", "streetAddress": "Av. Derramador 10, piso 10, pta B",
+             "postalCode": "03503", "addressLocality": "Benidorm", "addressRegion": "Alicante", "addressCountry": "ES"},
+ "founder": {"@type": "Person", "name": "{{ S.founder }}", "jobTitle": "Founder & CEO", "email": "{{ S.founder_email }}"},
+ "sameAs": ["{{ S.linkedin }}"]}
+</script>
+{%- endif %}
+{%- if page.tilt %}
+<script src="/aurora.js" defer></script>
+{%- endif %}
+{%- if page.strip %}
+<script src="/strip.js" defer></script>
+{%- endif %}
+</body>
+</html>

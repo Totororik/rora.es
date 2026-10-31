@@ -1,101 +1,70 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AURORA ML Training — datasets and model training for document AI</title>
-<meta name="description" content="Datasets, model training and independent evaluation for document AI: 219,171 unique fonts, 13.3 M character fingerprints and ≈ 13.8 M validated glyphs. API and SDK access in development — early access open.">
-<link rel="canonical" href="https://rora.es/ml.html">
-<link rel="alternate" hreflang="en" href="https://rora.es/ml.html">
-<link rel="alternate" hreflang="es" href="https://rora.es/es/ml.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="AURORA Ai.Lab">
-<meta property="og:title" content="AURORA ML Training — datasets and model training for document AI">
-<meta property="og:url" content="https://rora.es/ml.html">
-<meta property="og:image" content="https://rora.es/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#04060c">
-<link rel="preload" href="/fonts/syne-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/aurora.css">
-<link rel="stylesheet" href="/aurora.css">
-</head>
-<body>
-<div class="sky" aria-hidden="true">
-  <div class="band b1"></div><div class="band b2"></div><div class="band b3"></div><div class="band b4"></div>
-  <div class="stars"></div>
-</div>
+---
+lang: en
+alt: /es/ml.html
+section: business
+strip: true
+title: "AURORA ML Training — data, training and evaluation for document AI"
+description: "Datasets, model training and independent evaluation for document AI: 219,171 unique fonts, 13.3 M character fingerprints and ≈ 13.8 M validated glyphs. API and SDK access in development, early access open."
+---
+    <section class="hero prod">
+      <a class="back" href="/business/">← For business</a>
+      <h1><span class="line"><span class="w hl" style="--i:0">AURORA ML Training</span></span> <span class="line"><span class="w" style="--i:1">Build better document AI with specialised data and training</span></span><span class="scan" aria-hidden="true"></span></h1>
+      <p class="prod-lede">We built our own font and glyph data and training pipeline for AURORA OCR. Now we make this expertise available to teams that develop their own document models.</p>
+      <div class="ctas"><a class="btn" href="{{ site.data.site.early_access }}">Request early access <span class="go" aria-hidden="true">→</span></a><a class="btn ghost" href="/ocr.html">Explore AURORA OCR</a></div>
+    </section>
 
-<div class="page">
-  <header>
-    <a class="mark" href="/"><span>AURORA <i>Ai.Lab</i></span><span class="tagline">PDF &amp; scan intelligence</span></a>
-    <nav class="lang" aria-label="Language">
-      <a href="/ml.html" hreflang="en" lang="en" aria-current="true">EN</a>
-      <a href="/es/ml.html" hreflang="es" lang="es">ES</a>
-    </nav>
-  </header>
-
-  <main class="hero prod">
-    <a class="back" href="/">← All products</a>
-    <h1><span class="line"><span class="w hl" style="--i:0">AURORA</span> <span class="w hl" style="--i:1">ML</span> <span class="w hl" style="--i:2">Training</span></span> <span class="line"><span class="w" style="--i:3">Datasets</span> <span class="w" style="--i:4">and</span> <span class="w" style="--i:5">model</span> <span class="w" style="--i:6">training</span> <span class="w" style="--i:7">for</span> <span class="w" style="--i:8">document</span> <span class="w" style="--i:9">AI</span></span><span class="scan" aria-hidden="true"></span></h1>
-    <p class="prod-lede">We built our own font data and training pipeline to teach AURORA OCR to read. Now we offer them to teams that train their own document models.</p>
-  </main>
-
-  <div class="strip" aria-hidden="true">
-    <span>a</span><span>R</span><span>g</span><span class="pair">c</span><span class="pair">C</span><span>5</span><span>Ж</span><span>д</span><span>ы</span><span class="pair">o</span><span class="pair">O</span><span>e</span><span>1</span><span>t</span><span>Q</span><span>я</span>
-  </div>
-
-  <section class="sec">
-    <h2>What we offer</h2>
-    <div class="cards">
-      <div class="panel card">
-        <h3>Model training</h3>
-        <p>We train or fine-tune a model for your task: characters, text lines, fonts or page layout. Hard-example mining, targeted retraining and simulated scanner and camera damage are built in.</p>
-      </div>
-      <div class="panel card">
-        <h3>Datasets</h3>
-        <p>Access to our font and glyph data: hundreds of thousands of fonts, each split into letters and digits that are checked and labelled.</p>
-      </div>
-      <div class="panel card">
-        <h3>Independent evaluation</h3>
-        <p>We test your model on our internal test sets and on public benchmarks, olmOCR-bench and UNLV, next to 7–8 established PDF readers and OCR tools.</p>
-      </div>
+    <div class="strip" aria-hidden="true">
+      <span>a</span><span>R</span><span>g</span><span class="pair">c</span><span class="pair">C</span><span>5</span><span>Ж</span><span>д</span><span>ы</span><span class="pair">o</span><span class="pair">O</span><span>e</span><span>1</span><span>t</span><span>Q</span><span>я</span>
     </div>
-  </section>
 
-  <section class="sec">
-    <h2>The data behind it</h2>
-    <div class="panel">
-      <div class="scores four">
-        <div class="score"><b>219,171</b><span>unique fonts, consolidated from 374,936 font files</span></div>
-        <div class="score"><b>13.3 M</b><span>character fingerprints</span></div>
-        <div class="score"><b>≈ 13.8 M</b><span>validated glyphs: 11.7 M letters, 1.9 M digits and 0.2 M other signs, checked and labelled</span></div>
-        <div class="score"><b>1,643</b><span>characters our newest model reads: Latin, Cyrillic and Greek letters with accents, digits and signs</span></div>
+    <section class="sec">
+      <h2>What we offer</h2>
+      <div class="cards">
+        <article class="panel card">
+          <p class="eyebrow">AURORA Data</p>
+          <h3>Specialised font and glyph datasets for document AI</h3>
+          <p>Access to font, glyph and character-fingerprint data. You can review the sample format, labelling and coverage; licensing and access scope are agreed per project.</p>
+        </article>
+        <article class="panel card">
+          <p class="eyebrow">AURORA Training</p>
+          <h3>Train or fine-tune a model for your document task</h3>
+          <p>Characters, text lines, fonts or page layout. Hard-example mining, targeted retraining and simulated scanner and camera damage are built in.</p>
+        </article>
+        <article class="panel card">
+          <p class="eyebrow">AURORA Evaluation</p>
+          <h3>See how your model performs on document data</h3>
+          <p>Our internal test sets and selected public benchmarks, results by category and a report with the method. No score claims we cannot back up.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="sec">
-    <h2>How it will work</h2>
-    <p>One platform with <b>API and SDK</b> access to datasets, training resources, document-processing methods and model evaluation. The platform is in development, and we are taking early-access requests now.</p>
-    <p><a class="more-link" href="mailto:info@rora.es?subject=AURORA%20ML%20Training%20early%20access">Request early access: info@rora.es →</a></p>
-  </section>
+    <section class="sec">
+      <h2>The data behind the models</h2>
+      <div class="panel">
+        <div class="scores four">
+{% include metric.html id="fonts" %}
+{% include metric.html id="fingerprints" %}
+{% include metric.html id="glyphs" %}
+{% include metric.html id="characters" %}
+        </div>
+        <p class="note"><b>Two different counts.</b> ≈ 13.8 M is our whole collection of checked glyphs. The model measured on the <a href="/ocr.html">OCR page</a> was trained on ≈ 1.1 M glyph samples chosen from our data, each validated by a person.</p>
+      </div>
+    </section>
 
-  <section class="sec">
-    <h2>Proven on our own product</h2>
-    <p>The same data and methods train AURORA OCR: ≈ 99.85 % on clean characters and ≈ 99.65 % on scan-like characters.</p>
-    <p><a class="more-link" href="/ocr.html">About AURORA OCR →</a></p>
-  </section>
+    <section class="sec">
+      <h2>How a project works</h2>
+      <ol class="steps">
+        <li><b>Define the task</b><span>Document types, scripts, characters and the output you need.</span></li>
+        <li><b>Select data</b><span>The data scope and coverage that fit the task.</span></li>
+        <li><b>Train or fine-tune</b><span>Targeted training with hard-example mining.</span></li>
+        <li><b>Evaluate</b><span>Held-out test data and relevant public benchmarks.</span></li>
+        <li><b>Review results</b><span>Findings and next steps together.</span></li>
+      </ol>
+      <p class="note">The unified API and SDK platform is in development. Early-access requests are open.</p>
+    </section>
 
-  <footer>
-    <b>AURORA Ai.Lab</b> by <b>Sistema de Autorecluta, S.L.</b><br>
-    CIF / Tax ID B21823760 · Founded April 2025<br>
-    Founder &amp; CEO: <b>Vladimir Rora</b> · <a href="mailto:vladimir@rora.es">vladimir@rora.es</a><br>
-    LinkedIn: <a href="https://www.linkedin.com/company/aurora-ocr-lab/">AURORA Ai.Lab</a> ·
-    <a href="mailto:info@rora.es">info@rora.es</a><br>
-    © 2025–2026 Sistema de Autorecluta, S.L. · Spain<br>
-    <a href="/legal.html">Legal notice / Aviso legal</a> · <a href="/privacy.html">Privacy / Privacidad</a>
-  </footer>
-</div>
-<script src="/strip.js" defer></script>
-</body>
-</html>
+    <section class="sec final panel">
+      <h2>Building a document AI model?</h2>
+      <p>Tell us what you are training, which documents you work with and where your model struggles.</p>
+      <p><a class="more-link" href="{{ site.data.site.early_access }}">Request early access: info@rora.es →</a></p>
+    </section>

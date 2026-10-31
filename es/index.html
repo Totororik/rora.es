@@ -1,104 +1,66 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AURORA Ai.Lab — IA / machine learning para leer, editar y analizar documentos</title>
-<meta name="description" content="AURORA Ai.Lab crea herramientas de documentos. Para todos: edición de PDF en línea que conserva fuentes y maquetación, edición de currículos y recoloreado de PDF. Para empresas: OCR para PDF y escaneos y análisis de currículos a XML para ATS.">
-<link rel="canonical" href="https://rora.es/es/">
-<link rel="alternate" hreflang="en" href="https://rora.es/">
-<link rel="alternate" hreflang="es" href="https://rora.es/es/">
-<link rel="alternate" hreflang="x-default" href="https://rora.es/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="AURORA Ai.Lab">
-<meta property="og:locale" content="es_ES">
-<meta property="og:title" content="AURORA Ai.Lab — IA / machine learning para leer, editar y analizar documentos">
-<meta property="og:description" content="Edición de PDF en línea que conserva fuentes y maquetación, edición de currículos y recoloreado de PDF. OCR y análisis de currículos para empresas.">
-<meta property="og:url" content="https://rora.es/es/">
-<meta property="og:image" content="https://rora.es/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#04060c">
-<link rel="preload" href="/fonts/syne-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/aurora.css">
-<link rel="stylesheet" href="/aurora.css">
-</head>
-<body>
-<div class="sky" aria-hidden="true">
-  <div class="band b1"></div><div class="band b2"></div><div class="band b3"></div><div class="band b4"></div>
-  <div class="stars"></div>
-</div>
+---
+lang: es
+alt: /
+home: true
+tilt: true
+title: "AURORA Ai.Lab — IA / machine learning para leer, editar y analizar documentos"
+description: "AURORA Ai.Lab crea herramientas y tecnología de documentos. Para particulares: edición de PDF en línea que conserva fuentes y maquetación. Para empresas: OCR para escaneos y PDF, análisis de currículos a XML, y datos y entrenamiento para IA de documentos."
+---
+    <section class="hero">
+      <h1><span class="line"><span class="w hl" style="--i:0">IA</span> <span class="w hl" style="--i:1">/</span> <span class="w hl long" style="--i:2">machine learning</span><span class="w hl short" style="--i:2">ML</span></span> <span class="line"><span class="w" style="--i:3">para</span> <span class="w" style="--i:4">leer,</span> <span class="w" style="--i:5">editar</span> <span class="w" style="--i:6">y</span> <span class="w" style="--i:7">analizar</span> <span class="w" style="--i:8">documentos</span></span><span class="scan" aria-hidden="true"></span></h1>
+    </section>
 
-<div class="page">
-  <header>
-    <a class="mark" href="/es/"><span>AURORA <i>Ai.Lab</i></span><span class="tagline">Inteligencia para PDF y escaneos</span></a>
-    <nav class="lang" aria-label="Idioma">
-      <a href="/" hreflang="en" lang="en">EN</a>
-      <a href="/es/" hreflang="es" lang="es" aria-current="true">ES</a>
-    </nav>
-  </header>
-
-  <main class="hero">
-    <h1><span class="line"><span class="w hl" style="--i:0">IA</span> <span class="w hl" style="--i:1">/</span> <span class="w hl long" style="--i:2">machine learning</span><span class="w hl short" style="--i:2">ML</span></span> <span class="line"><span class="w" style="--i:3">para</span> <span class="w" style="--i:4">leer,</span> <span class="w" style="--i:5">editar</span> <span class="w" style="--i:6">y</span> <span class="w" style="--i:7">analizar</span> <span class="w" style="--i:8">documentos</span></span><span class="scan" aria-hidden="true"></span></h1>
-  </main>
-
-  <section class="products" aria-label="Productos">
-    <div class="groups">
-      <div class="group g-people">
-        <h2>Para todos</h2>
-        <div class="tiles">
-        <a class="tile link primary" href="https://pdfit.rora.es" style="--n:0">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M10 5h14l7 7v23H10z"/><path d="M24 5v7h7M15 19h11M15 24h6M24 22v8"/></svg></span>
-          <span class="tag live">En línea</span>
-          <span class="txt"><h3>AURORA PDFit <span class="go" aria-hidden="true">→</span></h3><p>Edita PDF como en Word</p></span>
-        </a>
-        <div class="tile" style="--n:1">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="7" y="6" width="22" height="28" rx="2"/><path d="M12 12h5v8h-5zM20 12h5M20 16h5M20 20h5M12 25h13M12 29h9M33 5v6M30 8h6"/></svg></span>
-          <span class="tag">Pronto</span>
-          <span class="txt"><h3>AURORA RESUMagic</h3><p>Edita currículos de cualquier plantilla</p></span>
+    <section class="products" aria-label="Productos">
+      <div class="groups">
+        <div class="group g-people">
+          <h2><a href="/es/individuals/">Para particulares <span class="go" aria-hidden="true">→</span></a></h2>
+          <p class="sub">Herramientas en el navegador para tus PDF y currículos.</p>
+          <div class="tiles">
+{% include tile.html id="pdfit" n=0 %}
+{% include tile.html id="resumagic" n=1 %}
+{% include tile.html id="anycolor" n=2 %}
+          </div>
         </div>
-        <div class="tile" style="--n:2">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="15" cy="16" r="8"/><circle cx="25" cy="16" r="8"/><circle cx="20" cy="25" r="8"/></svg></span>
-          <span class="tag">Pronto</span>
-          <span class="txt"><h3>AnyColor PDF</h3><p>Imprime con cualquier tinta</p></span>
-        </div>
+        <div class="group g-biz">
+          <h2><a href="/es/business/">Para empresas <span class="go" aria-hidden="true">→</span></a></h2>
+          <p class="sub">Reconocimiento, datos estructurados y entrenamiento de modelos para tu equipo.</p>
+          <div class="tiles">
+{% include tile.html id="ocr" n=3 %}
+{% include tile.html id="resuminer" n=4 %}
+{% include tile.html id="ml" n=5 %}
+          </div>
         </div>
       </div>
-      <div class="group g-biz">
-        <h2>Para empresas</h2>
-        <div class="tiles">
-        <a class="tile link" href="/es/ocr.html" style="--n:3">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M6 12V6h6M28 6h6v6M34 28v6h-6M12 34H6v-6"/><path d="M14 28l6-16 6 16M16.5 22h7"/></svg></span>
-          <span class="tag more">Detalles</span>
-          <span class="txt"><h3>AURORA OCR <span class="go" aria-hidden="true">→</span></h3><p>Reconocimiento de texto en escaneos y PDF</p></span>
-        </a>
-        <div class="tile" style="--n:4">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M6 6h14l6 6v22H6z"/><path d="M11 16h9M11 21h9M11 26h5"/><path d="M29 24l-3 3 3 3M34 24l3 3-3 3"/></svg></span>
-          <span class="tag">Pronto</span>
-          <span class="txt"><h3>AURORA Resuminer</h3><p>Currículos a XML estructurado</p></span>
-        </div>
-        <a class="tile link" href="/es/ml.html" style="--n:5">
-          <span class="ico" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="8" cy="12" r="3"/><circle cx="8" cy="28" r="3"/><circle cx="20" cy="8" r="3"/><circle cx="20" cy="20" r="3"/><circle cx="20" cy="32" r="3"/><circle cx="32" cy="20" r="3"/><path d="M11 12l6-3M11 12l6 7M11 28l6-7M11 28l6 3M23 8l7 10M23 20h6M23 32l7-10"/></svg></span>
-          <span class="tag">Pronto</span>
-          <span class="txt"><h3>AURORA ML Training <span class="go" aria-hidden="true">→</span></h3><p>Datos y entrenamiento de modelos de IA para documentos</p></span>
-        </a>
+    </section>
+
+    <section class="sec">
+      <h2>Un documento, tres capas de inteligencia</h2>
+      <div class="layers">
+        <div><p class="eyebrow">Reconocer</p><h3>Leer cada carácter</h3><p>Caracteres y texto en PDF, escaneos y fotos, también con fuentes y alfabetos difíciles.</p><a href="/es/ocr.html">AURORA OCR</a></div>
+        <div><p class="eyebrow">Comprender</p><h3>Convertir documentos en datos</h3><p>Encontrar la estructura de un documento y convertirla en campos que puedes buscar y usar.</p><a href="/es/resuminer.html">AURORA Resuminer</a></div>
+        <div><p class="eyebrow">Editar</p><h3>Cambiar el contenido, mantener el diseño</h3><p>Editar el contenido de un PDF sin perder sus fuentes, maquetación y gráficos.</p><a href="/es/products/pdfit/">AURORA PDFit</a> · <a href="/es/individuals/#resumagic">RESUMagic</a></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Construido sobre nuestros propios datos</h2>
+      <p>Nuestra tecnología de documentos se entrena con una gran colección de fuentes, huellas de caracteres y glifos revisados que hemos creado nosotros.</p>
+      <div class="panel">
+        <div class="scores four">
+{% include metric.html id="fonts" %}
+{% include metric.html id="fingerprints" %}
+{% include metric.html id="glyphs" %}
+{% include metric.html id="characters" %}
         </div>
       </div>
-    </div>
-  </section>
+      <p><a class="more-link" href="/es/ml.html">Sobre nuestros datos y entrenamiento →</a></p>
+    </section>
 
-  <footer>
-    <b>AURORA Ai.Lab</b> de <b>Sistema de Autorecluta, S.L.</b><br>
-    CIF B21823760 · Fundada en abril de 2025<br>
-    Fundador y CEO: <b>Vladimir Rora</b> · <a href="mailto:vladimir@rora.es">vladimir@rora.es</a><br>
-    LinkedIn: <a href="https://www.linkedin.com/company/aurora-ocr-lab/">AURORA Ai.Lab</a> ·
-    <a href="mailto:info@rora.es">info@rora.es</a><br>
-    © 2025–2026 Sistema de Autorecluta, S.L. · España<br>
-    <a href="/legal.html">Aviso legal / Legal notice</a> · <a href="/privacy.html">Privacidad / Privacy</a>
-  </footer>
-</div>
-
-<script src="/aurora.js" defer></script>
-</body>
-</html>
+    <section class="sec final panel">
+      <h2>¿En qué estás trabajando?</h2>
+      <p>Una herramienta práctica para PDF o IA de documentos para un proceso de empresa: empieza por el camino que encaja con tu tarea.</p>
+      <div class="ctas">
+        <a class="btn" href="/es/individuals/">Necesito una herramienta para documentos <span class="go" aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="/es/business/">Necesito IA de documentos para mi empresa <span class="go" aria-hidden="true">→</span></a>
+      </div>
+    </section>
