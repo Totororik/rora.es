@@ -83,8 +83,16 @@ h1 .w.hl { color: transparent; -webkit-background-clip: text; background-clip: t
 .link2:hover { color: var(--ink); }
 
 /* ---------- glass squares ---------- */
-.products h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 14px; perspective: 900px; }
+/* two audiences side by side: three squares for people, two for business */
+.groups { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 14px 28px; align-items: start; }
+.group { display: grid; gap: 12px; min-width: 0; }
+.group h2 { margin: 0; font: 600 .95rem var(--body); color: var(--ink-soft); }
+.g-biz { position: relative; padding-left: 28px; border-left: 1px solid rgba(255,255,255,.08); }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 14px; perspective: 900px; }
+.g-biz .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.api { justify-self: start; font-weight: 600; color: var(--teal); text-decoration: none; padding: 4px 0; }
+.api span { display: inline-block; transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
+.api:hover span { transform: translateX(4px); }
 .tile { position: relative; min-width: 0; min-height: clamp(12.5rem, 16vw, 14.5rem); border-radius: 22px; padding: 18px; isolation: isolate;
   display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--ink);
   background: linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.02) 55%), var(--glass);
@@ -127,13 +135,17 @@ footer b { color: var(--ink-soft); font-weight: 600; }
 footer a { text-decoration-color: rgba(255,255,255,.25); text-underline-offset: 3px; }
 footer a:hover { color: var(--ink); }
 
-@media (max-width: 1100px) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 1100px) {
+  .groups { grid-template-columns: 1fr; }
+  .g-biz { padding-left: 0; border-left: 0; }
+  .g-biz .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 /* phone: squares become compact rows so several fit on the first screen */
 @media (max-width: 720px) {
-  .tiles { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 10px; }
+  .tiles, .g-biz .tiles { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 10px; }
   .tile { min-height: 0; flex-direction: row; align-items: flex-start; gap: 14px; padding: 14px 16px; border-radius: 18px; }
   .ico { width: 30px; height: 30px; margin-top: 2px; }
-  .txt { margin-top: 0; padding-right: 64px; }
+  .txt { margin-top: 0; padding-right: 88px; }
   .tile p { font-size: .8rem; }
   .tag { top: 14px; right: 14px; }
   .btn { width: 100%; justify-content: center; }
