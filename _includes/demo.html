@@ -1,0 +1,27 @@
+{%- assign L = page.lang | default: "en" -%}
+{%- if L == "es" -%}
+{%- assign d_label = "Ilustración: en otros editores de PDF una línea nueva se sale del marco; en AURORA PDFit el marco crece con el texto." -%}
+{%- assign d_bad = "Otros editores de PDF" -%}{%- assign d_good = "AURORA PDFit" -%}
+{%- assign d_h1 = "Experiencia" -%}{%- assign d_l1 = "Product Manager · Nova Studio" -%}{%- assign d_l2 = "2019–2025" -%}{%- assign d_new = "Lancé una nueva app móvil" -%}
+{%- assign d_h2 = "Formación" -%}{%- assign d_l3 = "MBA, Universidad de Valencia" -%}
+{%- assign d_vbad = "El texto se sale del marco" -%}{%- assign d_vgood = "El marco crece con el texto" -%}{%- assign d_note = "Ilustración." -%}
+{%- else -%}
+{%- assign d_label = "Illustration: in other PDF editors a new line runs over the frame; in AURORA PDFit the frame grows with the text." -%}
+{%- assign d_bad = "Other PDF editors" -%}{%- assign d_good = "AURORA PDFit" -%}
+{%- assign d_h1 = "Experience" -%}{%- assign d_l1 = "Product Manager · Nova Studio" -%}{%- assign d_l2 = "2019–2025" -%}{%- assign d_new = "Launched a new mobile app" -%}
+{%- assign d_h2 = "Education" -%}{%- assign d_l3 = "MBA, University of Valencia" -%}
+{%- assign d_vbad = "The text runs over the frame" -%}{%- assign d_vgood = "The frame grows with the text" -%}{%- assign d_note = "Illustration." -%}
+{%- endif %}
+      <div class="demo" role="img" aria-label="{{ d_label }}">
+        {%- for side in (1..2) %}
+        <div class="demo-side {% if side == 1 %}bad{% else %}good{% endif %}" aria-hidden="true">
+          <p class="demo-cap">{% if side == 1 %}{{ d_bad }}{% else %}{{ d_good }}{% endif %}</p>
+          <div class="sheet">
+            <div class="box"><b>{{ d_h1 }}</b><span>{{ d_l1 }}</span><span>{{ d_l2 }}</span><span class="new">{{ d_new }}</span></div>
+            <div class="next"><b>{{ d_h2 }}</b><span>{{ d_l3 }}</span></div>
+          </div>
+          <p class="verdict">{% if side == 1 %}✕ {{ d_vbad }}{% else %}✓ {{ d_vgood }}{% endif %}</p>
+        </div>
+        {%- endfor %}
+      </div>
+      <p class="note">{{ d_note }}</p>
