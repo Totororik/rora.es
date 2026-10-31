@@ -1,25 +1,39 @@
 {%- assign L = page.lang | default: "en" -%}
 {%- if L == "es" -%}
-{%- assign d_label = "Ilustración: en otros editores de PDF una línea nueva se sale del marco; en AURORA PDFit el marco crece con el texto." -%}
+{%- assign d_label = "Ilustración con una factura real: se añaden tres líneas bajo la dirección y dos filas en el resumen. En otros editores de PDF el texto nuevo, en una fuente sustituta, se sale encima del resto; en AURORA PDFit los bloques crecen, todo lo de abajo baja y el texto usa la fuente original." -%}
 {%- assign d_bad = "Otros editores de PDF" -%}{%- assign d_good = "AURORA PDFit" -%}
-{%- assign d_h1 = "Experiencia" -%}{%- assign d_l1 = "Product Manager · Nova Studio" -%}{%- assign d_l2 = "2019–2025" -%}{%- assign d_new = "Lancé una nueva app móvil" -%}
-{%- assign d_h2 = "Formación" -%}{%- assign d_l3 = "MBA, Universidad de Valencia" -%}
-{%- assign d_vbad = "El texto se sale del marco" -%}{%- assign d_vgood = "El marco crece con el texto" -%}{%- assign d_note = "Ilustración." -%}
+{%- assign d_vbad = "El texto se monta encima, con otra fuente" -%}{%- assign d_vgood = "Los bloques bajan, la fuente es la original" -%}
+{%- assign d_note = "Una factura real con datos personales sustituidos. Ilustración." -%}
 {%- else -%}
-{%- assign d_label = "Illustration: in other PDF editors a new line runs over the frame; in AURORA PDFit the frame grows with the text." -%}
+{%- assign d_label = "Illustration on a real invoice: three lines are added under the address and two rows to the summary. In other PDF editors the new text, in a substitute font, runs over the rest; in AURORA PDFit the boxes grow, everything below moves down and the text uses the original font." -%}
 {%- assign d_bad = "Other PDF editors" -%}{%- assign d_good = "AURORA PDFit" -%}
-{%- assign d_h1 = "Experience" -%}{%- assign d_l1 = "Product Manager · Nova Studio" -%}{%- assign d_l2 = "2019–2025" -%}{%- assign d_new = "Launched a new mobile app" -%}
-{%- assign d_h2 = "Education" -%}{%- assign d_l3 = "MBA, University of Valencia" -%}
-{%- assign d_vbad = "The text runs over the frame" -%}{%- assign d_vgood = "The frame grows with the text" -%}{%- assign d_note = "Illustration." -%}
+{%- assign d_vbad = "Text runs over the page, in another font" -%}{%- assign d_vgood = "Blocks move down, the font is the original" -%}
+{%- assign d_note = "A real invoice with personal details replaced. Illustration." -%}
 {%- endif %}
       <div class="demo" role="img" aria-label="{{ d_label }}">
         {%- for side in (1..2) %}
         <div class="demo-side {% if side == 1 %}bad{% else %}good{% endif %}" aria-hidden="true">
           <p class="demo-cap">{% if side == 1 %}{{ d_bad }}{% else %}{{ d_good }}{% endif %}</p>
-          <div class="sheet">
-            <div class="box"><b>{{ d_h1 }}</b><span>{{ d_l1 }}</span><span>{{ d_l2 }}</span><span class="new">{{ d_new }}</span></div>
-            <div class="next"><b>{{ d_h2 }}</b><span>{{ d_l3 }}</span></div>
-          </div>
+          <div class="inv"><div class="pg">
+            <div class="sl" style="--t:0;--h:185"></div>
+            <div class="gr g1">
+              <span class="ln t1">Persona de contacto: Ana López</span>
+              <span class="ln t2">Teléfono: 600 000 000</span>
+              <span class="ln t3">Email: ana@ejemplo.es</span>
+            </div>
+            <div class="sl" style="--t:185;--h:349"></div>
+            <div class="mid">
+              <div class="sl" style="--t:534;--h:98;--w:202"></div>
+              <div class="col">
+                <div class="gr g2">
+                  <span class="row t4"><span>Alquiler de contador</span><span>0,00€</span></span>
+                  <span class="row t5"><span>Bono social</span><span>0,00€</span></span>
+                </div>
+                <div class="sl" style="--t:534;--h:98;--x:202;--w:393"></div>
+              </div>
+            </div>
+            <div class="sl" style="--t:632;--h:209"></div>
+          </div></div>
           <p class="verdict">{% if side == 1 %}✕ {{ d_vbad }}{% else %}✓ {{ d_vgood }}{% endif %}</p>
         </div>
         {%- endfor %}
