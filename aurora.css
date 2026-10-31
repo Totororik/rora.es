@@ -336,6 +336,8 @@ ol.steps li { align-content: start; }
 .demo .bad .gr { height: 0; }
 .demo .g1 { background-image: url(/img/factura-f1.png); }
 .demo .g2 { background-image: url(/img/factura-f2.png); }
+.demo .g3 { background-image: url(/img/factura-f3.png); }
+.demo .coll { width: calc(202 * var(--k)); }
 .verdict { margin: 12px 0 0; font-size: .9rem; font-weight: 600; color: #ff8a9a; }
 .demo-side.good .verdict { color: var(--green); }
 @media (max-width: 720px) { .demo { grid-template-columns: 1fr; } }
@@ -351,4 +353,7 @@ ol.steps li { align-content: start; }
 .demo .e2 > div { display: flex; justify-content: space-between; }
 .demo .e1 { padding: calc(6 * var(--k)) 0 0 calc(40 * var(--k)); font-size: calc(10 * var(--k)); line-height: calc(12.5 * var(--k)); }
 .demo .e2 { margin: 0 calc(45.5 * var(--k)) 0 calc(30 * var(--k)); font-size: calc(7.5 * var(--k)); line-height: calc(14.5 * var(--k)); background: repeating-linear-gradient(to bottom, transparent 0 calc(13.5 * var(--k)), #d8d8d8 calc(13.5 * var(--k)) calc(14.5 * var(--k))); }
+.demo .e3 { padding: calc(.7 * var(--k)) 0 0 calc(37.5 * var(--k)); font-size: calc(8 * var(--k)); line-height: calc(12 * var(--k)); font-weight: 700; color: #fff; }
+.demo .e3:empty { padding-top: 0; }
 .demo .bad .ed { font-family: Arial, Helvetica, sans-serif; font-weight: 400; color: #c8102e; background: none; }
+.demo .bad .e3 { font-weight: 700; color: #ff5470; }

@@ -3,6 +3,7 @@
 // a script, not css keyframes: it works the same in every browser, including safari on iphone.
 (function () {
   var TOP = ['Persona de contacto: Ana López', 'Teléfono: 600 000 000', 'Email: ana@ejemplo.es', 'Horario: de 9:00 a 18:00'];
+  var TIP = ['Y desenchufa los aparatos', 'en standby: ahorrarás hasta', 'un 10 % en tu factura.'];
   var ROWS = [['Alquiler de contador', '0,00€'], ['Bono social', '0,00€'], ['Servicio de mantenimiento', '0,00€'],
     ['Energía reactiva', '0,00€'], ['Compensación de excedentes', '0,00€']];
   var CHAR = 45; // ms per typed letter
@@ -36,14 +37,20 @@
 
   async function invoice(demo) {
     each(demo.querySelectorAll('.inv'), fitPoints);
-    var top = demo.querySelectorAll('.e1'), table = demo.querySelectorAll('.e2');
+    var top = demo.querySelectorAll('.e1'), tip = demo.querySelectorAll('.e3'), table = demo.querySelectorAll('.e2');
     for (;;) {
       each(top, function (b) { b.textContent = ''; });
       each(table, function (b) { b.textContent = ''; });
+      each(tip, function (b) { b.textContent = ''; });
       await wait(1500);
       for (var i = 0; i < TOP.length; i++) {
         await typeInto(newLine(top), TOP[i]);
         await wait(350);
+      }
+      await wait(900);
+      for (var t = 0; t < TIP.length; t++) {
+        await typeInto(newLine(tip), TIP[t]);
+        await wait(300);
       }
       await wait(900);
       for (var j = 0; j < ROWS.length; j++) {
