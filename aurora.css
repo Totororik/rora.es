@@ -331,46 +331,24 @@ ol.steps li { align-content: start; }
 .demo .sl { width: calc(var(--w, 595) * var(--k)); height: calc(var(--h) * var(--k)); background: url(/img/factura.webp) no-repeat; background-size: calc(595 * var(--k)) auto; background-position: calc(var(--x, 0) * -1 * var(--k)) calc(var(--t) * -1 * var(--k)); }
 .demo .mid { display: flex; align-items: flex-start; }
 .demo .col { width: calc(393 * var(--k)); }
-.demo .gr { position: relative; z-index: 1; height: 0; background-size: 100% 100%; }
+/* the right invoice grows with its text; the left one keeps its height and the text lies on top */
+.demo .gr { position: relative; z-index: 1; background-size: 100% 100%; }
+.demo .bad .gr { height: 0; }
 .demo .g1 { background-image: url(/img/factura-f1.png); }
 .demo .g2 { background-image: url(/img/factura-f2.png); }
-.demo .ln, .demo .row { position: absolute; display: flex; white-space: nowrap; font-family: 'Plus Jakarta Sans', var(--body); font-weight: 300; color: #000; clip-path: inset(0 100% 0 0); }
-.demo .ln { left: calc(40 * var(--k)); font-size: calc(10 * var(--k)); line-height: calc(12.5 * var(--k)); }
-.demo .t1 { top: calc(6 * var(--k)); } .demo .t2 { top: calc(18.5 * var(--k)); } .demo .t3 { top: calc(31 * var(--k)); }
-.demo .row { left: calc(30 * var(--k)); right: calc(45.5 * var(--k)); height: calc(14.5 * var(--k)); padding-top: calc(1.5 * var(--k)); box-sizing: border-box; justify-content: space-between; font-size: calc(7.5 * var(--k)); line-height: calc(9.5 * var(--k)); border-bottom: calc(1 * var(--k)) solid #d8d8d8; }
-.demo .t4 { top: 0; } .demo .t5 { top: calc(14.5 * var(--k)); }
-/* other editors: nothing moves, the new text is set in a substitute font and lies on top of the page */
-.demo .bad .ln, .demo .bad .row { font-family: Arial, Helvetica, sans-serif; font-weight: 400; color: #c8102e; border-bottom-color: transparent; }
-.demo .ln, .demo .row { animation: 12s infinite; }
-.demo .t1 { animation-name: dT1; } .demo .t2 { animation-name: dT2; } .demo .t3 { animation-name: dT3; } .demo .t4 { animation-name: dT4; } .demo .t5 { animation-name: dT5; }
-.demo .good .g1 { animation: dG1 12s infinite; }
-.demo .good .g2 { animation: dG2 12s infinite; }
-@keyframes dT1 { 0%, 6% { clip-path: inset(0 100% 0 0); animation-timing-function: steps(30, end); } 14%, 90% { clip-path: inset(0 0 0 0); } 93%, 100% { clip-path: inset(0 100% 0 0); } }
-@keyframes dT2 { 0%, 15% { clip-path: inset(0 100% 0 0); animation-timing-function: steps(21, end); } 23%, 90% { clip-path: inset(0 0 0 0); } 93%, 100% { clip-path: inset(0 100% 0 0); } }
-@keyframes dT3 { 0%, 24% { clip-path: inset(0 100% 0 0); animation-timing-function: steps(21, end); } 32%, 90% { clip-path: inset(0 0 0 0); } 93%, 100% { clip-path: inset(0 100% 0 0); } }
-@keyframes dT4 { 0%, 40% { clip-path: inset(0 100% 0 0); animation-timing-function: steps(30, end); } 48%, 90% { clip-path: inset(0 0 0 0); } 93%, 100% { clip-path: inset(0 100% 0 0); } }
-@keyframes dT5 { 0%, 50% { clip-path: inset(0 100% 0 0); animation-timing-function: steps(30, end); } 58%, 90% { clip-path: inset(0 0 0 0); } 93%, 100% { clip-path: inset(0 100% 0 0); } }
-@keyframes dG1 { 0%, 5% { height: 0; } 7%, 14% { height: calc(18.5 * var(--k)); } 16%, 23% { height: calc(31 * var(--k)); } 25%, 90% { height: calc(43.5 * var(--k)); } 96%, 100% { height: 0; } }
-@keyframes dG2 { 0%, 38% { height: 0; } 40%, 48% { height: calc(14.5 * var(--k)); } 50%, 90% { height: calc(29 * var(--k)); } 96%, 100% { height: 0; } }
 .verdict { margin: 12px 0 0; font-size: .9rem; font-weight: 600; color: #ff8a9a; }
 .demo-side.good .verdict { color: var(--green); }
 @media (max-width: 720px) { .demo { grid-template-columns: 1fr; } }
-@media (prefers-reduced-motion: reduce) {
-  .demo .ln, .demo .row { animation: none; clip-path: none; }
-  .demo .good .g1 { animation: none; height: calc(43.5 * var(--k)); }
-  .demo .good .g2 { animation: none; height: calc(29 * var(--k)); }
-}
 /* ---------- original font vs a substitute: one name in the invoice greeting ---------- */
 @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/plus-jakarta-sans-700-latin.woff2) format('woff2'); }
 .fontdemo { margin-top: 14px; }
 .fontdemo .hola { margin: 0; padding: .7em .8em; border-radius: 10px; background: #fff; color: #00cfa7; font: 700 clamp(1.5rem, 3.2vw, 2.5rem)/1.2 'Plus Jakarta Sans', var(--body); white-space: nowrap; overflow: hidden; }
-.fontdemo .old, .fontdemo .nw { display: inline-block; vertical-align: top; overflow: hidden; }
-.fontdemo .old { max-width: 2.4em; animation: fOld 8s infinite; }
-.fontdemo .nw { max-width: 0; animation: fNew 8s infinite; }
-.fontdemo .bad .nw { font-family: 'Times New Roman', Times, serif; }
-@keyframes fOld { 0%, 15% { max-width: 2.4em; animation-timing-function: steps(3, end); } 25%, 92% { max-width: 0; } 96%, 100% { max-width: 2.4em; } }
-@keyframes fNew { 0%, 27% { max-width: 0; animation-timing-function: steps(5, end); } 47%, 92% { max-width: 3.6em; } 96%, 100% { max-width: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .fontdemo .old { animation: none; max-width: 0; }
-  .fontdemo .nw { animation: none; max-width: none; }
-}
+.fontdemo .bad .nm.sub { font-family: 'Times New Roman', Times, serif; }
+/* ---------- the invoice demo types by itself (demo.js), like a screen recording ---------- */
+.demo .ed { white-space: pre; font-family: 'Plus Jakarta Sans', var(--body); font-weight: 300; color: #000; }
+.demo .ed > div { min-height: 1em; }
+.demo .e1:empty { padding-top: 0; }
+.demo .e2 > div { display: flex; justify-content: space-between; }
+.demo .e1 { padding: calc(6 * var(--k)) 0 0 calc(40 * var(--k)); font-size: calc(10 * var(--k)); line-height: calc(12.5 * var(--k)); }
+.demo .e2 { margin: 0 calc(45.5 * var(--k)) 0 calc(30 * var(--k)); font-size: calc(7.5 * var(--k)); line-height: calc(14.5 * var(--k)); background: repeating-linear-gradient(to bottom, transparent 0 calc(13.5 * var(--k)), #d8d8d8 calc(13.5 * var(--k)) calc(14.5 * var(--k))); }
+.demo .bad .ed { font-family: Arial, Helvetica, sans-serif; font-weight: 400; color: #c8102e; background: none; }

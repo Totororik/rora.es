@@ -12,7 +12,7 @@
         {%- for side in (1..2) %}
         <div class="demo-side {% if side == 1 %}bad{% else %}good{% endif %}" aria-hidden="true">
           <p class="demo-cap">{% if side == 1 %}{{ f_bad }}{% else %}{{ f_good }}{% endif %}</p>
-          <p class="hola">Hola <span class="old">Ana</span><span class="nw">María</span> García,</p>
+          <p class="hola">Hola <span class="nm">Ana</span> García,</p>
           <p class="verdict">{% if side == 1 %}✕ {{ f_vbad }}{% else %}✓ {{ f_vgood }}{% endif %}</p>
         </div>
         {%- endfor %}
