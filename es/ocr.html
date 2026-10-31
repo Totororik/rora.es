@@ -57,16 +57,34 @@
         <dt>Parámetros</dt><dd>≈ 49,5 M</dd>
         <dt>Clases</dt><dd>110 letras latinas y cirílicas y dígitos</dd>
         <dt>Datos</dt><dd>≈ 1,1 M muestras de caracteres, cada una validada por una persona</dd>
-        <dt>Prueba</dt><dd>caracteres de 76 currículos reales en PDF no usados en el entrenamiento</dd>
+        <dt>Prueba</dt><dd>conjunto interno de documentos PDF reales, nunca usados en el entrenamiento</dd>
       </dl>
       <p class="note"><b>Cómo se cuenta la precisión.</b> Las mayúsculas y minúsculas de una misma forma (c/C, o/O, s/S y similares) se cuentan como acierto del modelo de caracteres. La caja se decide después con una regla aparte, por la geometría de la línea de texto.</p>
     </div>
   </section>
 
   <section class="sec">
+    <h2>Los datos que hemos creado</h2>
+    <div class="panel">
+      <div class="scores four">
+        <div class="score"><b>219.171</b><span>fuentes únicas, a partir de 374.936 archivos de fuentes</span></div>
+        <div class="score"><b>13,3 M</b><span>huellas de caracteres</span></div>
+        <div class="score"><b>≈ 4,37 M</b><span>glifos validados: imágenes de letras revisadas y etiquetadas</span></div>
+        <div class="score"><b>110</b><span>letras latinas y cirílicas y dígitos que distingue el modelo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Cómo medimos</h2>
+    <p>Probamos con bancos de pruebas públicos e independientes, no solo con nuestros datos: <b>olmOCR-bench</b> (miles de PDF reales con tablas, fórmulas, encabezados y letra pequeña) y <b>UNLV</b> (documentos de empresa escaneados). Nuestros métodos se comparan con 7–8 lectores de PDF y herramientas OCR consolidados.</p>
+    <p>Publicaremos aquí los resultados.</p>
+  </section>
+
+  <section class="sec">
     <h2>En qué trabajamos</h2>
     <p>Alcanzar al menos un 99,8 % con degradación realista: caracteres desplazados, fondos, desenfoque, bajo contraste, distinto grosor de trazo y fotos de papel hechas con el móvil. El entrenamiento usa minería de ejemplos difíciles, reentrenamiento dirigido y daños simulados de escáner y cámara.</p>
-    <p>La siguiente etapa es el OCR por líneas.</p>
+    <p>La siguiente etapa es el OCR por líneas: la precisión preliminar por línea es de alrededor del 93–94 %.</p>
   </section>
 
   <section class="sec">

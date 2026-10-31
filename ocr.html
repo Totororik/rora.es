@@ -56,16 +56,34 @@
         <dt>Parameters</dt><dd>≈ 49.5 M</dd>
         <dt>Character classes</dt><dd>110 Latin and Cyrillic letters and digits</dd>
         <dt>Training data</dt><dd>≈ 1.1 M glyph samples, each validated by a person</dd>
-        <dt>Test set</dt><dd>characters from 76 real PDF résumés not used in training</dd>
+        <dt>Test set</dt><dd>internal test set of real PDF documents, never used in training</dd>
       </dl>
       <p class="note"><b>How accuracy is counted.</b> Upper- and lower-case letters that share one shape (c/C, o/O, s/S and similar) are scored as correct by the character model. Their case is decided afterwards by a separate rule from the geometry of the text line.</p>
     </div>
   </section>
 
   <section class="sec">
+    <h2>Training data we built</h2>
+    <div class="panel">
+      <div class="scores four">
+        <div class="score"><b>219,171</b><span>unique fonts, consolidated from 374,936 font files</span></div>
+        <div class="score"><b>13.3 M</b><span>character fingerprints</span></div>
+        <div class="score"><b>≈ 4.37 M</b><span>validated glyphs: letter images checked and labelled</span></div>
+        <div class="score"><b>110</b><span>Latin and Cyrillic letters and digits the model tells apart</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>How we measure</h2>
+    <p>We test on independent public benchmarks, not only on our own data: <b>olmOCR-bench</b> (thousands of real PDFs with tables, formulas, headers and small print) and <b>UNLV</b> (scanned business documents). Our processing methods are compared against 7–8 established PDF readers and OCR tools.</p>
+    <p>Benchmark results will be published here.</p>
+  </section>
+
+  <section class="sec">
     <h2>What we are working on</h2>
     <p>Reaching at least 99.8 % under realistic degradation: displaced characters, background artefacts, blur, low contrast, varying stroke weight and phone photos of paper. The training pipeline uses hard-example mining, targeted retraining and simulated scanner and camera damage.</p>
-    <p>The next stage is line-level OCR.</p>
+    <p>The next stage is line-level OCR: preliminary text-line accuracy is about 93–94 %.</p>
   </section>
 
   <section class="sec">

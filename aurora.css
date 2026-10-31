@@ -203,3 +203,9 @@ dl.spec dd { margin: 0; min-width: 0; font-variant-numeric: tabular-nums; }
 /* product page title: big product name, smaller promise under it */
 .prod h1 .line + .line { margin-top: .25em; font-size: .56em; line-height: 1.15; }
 h1 { overflow-wrap: break-word; hyphens: auto; }
+.scores.four { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 0; }
+.scores.four { gap: 18px 24px; }
+.scores.four b { font-size: clamp(1.6rem, 2.5vw, 2.15rem); white-space: nowrap; }
+.sec p b { color: var(--ink); font-weight: 600; }
+@media (max-width: 1000px) { .scores.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .scores.four { grid-template-columns: 1fr; } }
