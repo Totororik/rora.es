@@ -2,9 +2,10 @@
 // the left invoice keeps its height, so the text lies on top; the right one grows and pushes the page down.
 // a script, not css keyframes: it works the same in every browser, including safari on iphone.
 (function () {
-  var TOP = ['Persona de contacto: Ana López', 'Teléfono: 600 000 000', 'Email: ana@ejemplo.es'];
-  var ROWS = [['Alquiler de contador', '0,00€'], ['Bono social', '0,00€']];
-  var CHAR = 55; // ms per typed letter
+  var TOP = ['Persona de contacto: Ana López', 'Teléfono: 600 000 000', 'Email: ana@ejemplo.es', 'Horario: de 9:00 a 18:00'];
+  var ROWS = [['Alquiler de contador', '0,00€'], ['Bono social', '0,00€'], ['Servicio de mantenimiento', '0,00€'],
+    ['Energía reactiva', '0,00€'], ['Compensación de excedentes', '0,00€']];
+  var CHAR = 45; // ms per typed letter
 
   function wait(ms) { return new Promise(function (ok) { setTimeout(ok, ms); }); }
   function each(list, fn) { Array.prototype.forEach.call(list, fn); }
