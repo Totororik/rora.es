@@ -3,60 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>AURORA Ai.Lab</title>
 <meta name="description" content="AURORA Ai.Lab — document-processing products and proprietary ML technologies by Sistema de Autorecluta SL, Spain.">
-<link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/site.css">
+<title>AURORA Ai.Lab</title>
+<link rel="stylesheet" href="/fonts/aurora.css">
+<style>
+/* Layout: night sky with a slow aurora; huge wordmark that "gets recognised" by a scan line; one row of five glass squares */
+:root {
+  --night: #04060c;
+  --night-2: #0a1020;
+  --ink: #eef3ff;
+  --ink-soft: #aab6cf;
+  --ink-faint: #7c88a3;
+  --glass: rgba(255, 255, 255, .055);
+  --glass-edge: rgba(255, 255, 255, .14);
+  --green: #3dffb4;
+  --teal: #29d3ff;
+  --violet: #9b6bff;
+  --display: "Syne", "Segoe UI", sans-serif;
+  --body: "Figtree", "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+@property --ang { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+
+* { box-sizing: border-box; }
+html { background: var(--night); scrollbar-color: #2a3550 var(--night); }
+body { margin: 0; min-height: 100%; background: var(--night); color: var(--ink); font: 400 1rem/1.6 var(--body); overflow-x: hidden; }
+::selection { background: rgba(61, 255, 180, .28); color: #fff; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- aurora sky ---------- */
+.sky { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  background: radial-gradient(120% 80% at 50% 110%, var(--night-2), var(--night) 60%); }
+.band { position: absolute; width: 90vmax; height: 50vmax; border-radius: 50%; mix-blend-mode: screen; opacity: .55; will-change: transform; }
+.band.b1 { left: -20vmax; top: -18vmax; background: radial-gradient(closest-side, rgba(61,255,180,.55), rgba(61,255,180,0)); animation: drift1 26s ease-in-out infinite alternate; }
+.band.b2 { right: -25vmax; top: -10vmax; background: radial-gradient(closest-side, rgba(155,107,255,.5), rgba(155,107,255,0)); animation: drift2 32s ease-in-out infinite alternate; }
+.band.b3 { left: 10vmax; top: 8vmax; width: 70vmax; height: 26vmax; background: radial-gradient(closest-side, rgba(41,211,255,.38), rgba(41,211,255,0)); animation: drift3 22s ease-in-out infinite alternate; }
+.band.b4 { left: 30vmax; top: 30vmax; width: 60vmax; height: 30vmax; opacity: .3; background: radial-gradient(closest-side, rgba(255,111,181,.35), rgba(255,111,181,0)); animation: drift2 38s ease-in-out infinite alternate-reverse; }
+@keyframes drift1 { to { transform: translate3d(14vmax, 6vmax, 0) rotate(12deg) scale(1.15); } }
+@keyframes drift2 { to { transform: translate3d(-16vmax, 8vmax, 0) rotate(-14deg) scale(1.1); } }
+@keyframes drift3 { to { transform: translate3d(-8vmax, -5vmax, 0) rotate(8deg) scaleX(1.3); } }
+.stars { position: absolute; inset: 0; opacity: .5;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 14%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 44% 8%, #cfe 50%, transparent 51%),
+    radial-gradient(1px 1px at 91% 41%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 63%, #dfe 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 33%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 30% 45%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 85% 75%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 20% 88%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 55% 70%, #eaf 50%, transparent 51%); }
+.grain { position: absolute; inset: 0; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* ---------- page ---------- */
+.page { position: relative; z-index: 1; max-width: 76rem; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: 0 40px; display: grid; gap: clamp(48px, 8vw, 96px); }
+header { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 22px; }
+.mark { font: 700 .95rem var(--display); letter-spacing: .04em; }
+.mark i { font-style: normal; color: var(--green); }
+.lang { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--glass); border: 1px solid var(--glass-edge); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.lang button { font: 600 .74rem var(--body); letter-spacing: .08em; color: var(--ink-faint); background: none; border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: color .2s, background .2s; }
+.lang button[aria-pressed="true"] { color: var(--night); background: var(--ink); }
+
+/* hero wordmark: letters sharpen as the scan line passes, like a page being read */
+.hero { display: grid; gap: 22px; padding-top: clamp(24px, 6vw, 64px); }
+.word { position: relative; margin: 0; font: 800 clamp(2.2rem, calc((100vw - 48px) / 7.6), 9.6rem)/.92 var(--display); letter-spacing: -.035em; white-space: nowrap; }
+.word .row { display: block; }
+.word .ch { display: inline-block; animation: read 1.1s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(var(--i) * 70ms + 250ms); }
+.word .lab .ch { color: transparent; -webkit-background-clip: text; background-clip: text;
+  background-image: linear-gradient(100deg, var(--green), var(--teal) 40%, var(--violet) 75%, var(--green));
+  background-size: 600% 100%; background-position: calc(var(--j) * 20%) 0; }
+@keyframes read { from { filter: blur(14px); opacity: .25; transform: translateY(.06em); } to { filter: blur(0); opacity: 1; transform: none; } }
+.scan { position: absolute; top: -6%; bottom: -6%; left: 0; width: 3px; border-radius: 3px; pointer-events: none;
+  background: var(--green); box-shadow: 0 0 18px 4px rgba(61,255,180,.55), 0 0 60px 12px rgba(41,211,255,.25);
+  opacity: 0; animation: scan 1.6s cubic-bezier(.45, 0, .2, 1) .2s both; }
+@keyframes scan { 0% { left: 0; opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+.lede { margin: 0; max-width: 34rem; font-size: clamp(1.05rem, 2vw, 1.3rem); line-height: 1.5; color: var(--ink-soft); text-wrap: balance;
+  animation: rise 1s cubic-bezier(.16, 1, .3, 1) 1s both; }
+@keyframes rise { from { opacity: .2; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* ---------- glass squares ---------- */
+.tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 14px; perspective: 900px; }
+.tile { position: relative; min-height: clamp(13rem, 17vw, 15rem); max-width: 100%; min-width: 0; border-radius: 22px; padding: 20px; isolation: isolate;
+  display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--ink);
+  background: linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.02) 55%), var(--glass);
+  backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 24px 50px -24px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.12);
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .5s cubic-bezier(.16, 1, .3, 1), box-shadow .4s;
+  animation: tileIn .9s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(1.05s + var(--n) * 90ms); }
+@keyframes tileIn { from { opacity: .15; transform: translateY(26px) scale(.97); } to { opacity: 1; transform: none; } }
+/* living edge: a thin light runs around the glass */
+.tile::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; z-index: -1; pointer-events: none;
+  background: conic-gradient(from var(--ang), var(--glass-edge) 0 60%, var(--green) 70%, var(--teal) 76%, var(--violet) 82%, var(--glass-edge) 92%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: edge 7s linear infinite; animation-delay: calc(var(--n) * -1.4s); }
+@keyframes edge { to { --ang: 360deg; } }
+/* light under the cursor */
+.tile::after { content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .35s;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 30%), rgba(61,255,180,.16), rgba(155,107,255,.08) 40%, transparent 70%); }
+.tile:hover::after, .tile:focus-visible::after { opacity: 1; }
+a.tile:hover { box-shadow: 0 34px 70px -28px rgba(0,0,0,.9), 0 0 0 1px rgba(61,255,180,.18), inset 0 1px 0 rgba(255,255,255,.18); }
+.ico { width: 40px; height: 40px; color: var(--green); flex: none; }
+.ico svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.tile h2 { margin: auto 0 0; font: 700 clamp(1.05rem, 1.5vw, 1.3rem)/1.1 var(--display); letter-spacing: -.01em; text-wrap: balance; }
+.tile h2 .go { display: inline-block; color: var(--green); transition: transform .4s cubic-bezier(.16, 1, .3, 1); }
+a.tile:hover h2 .go { transform: translateX(5px); }
+.tile p { margin: 0; font-size: .86rem; line-height: 1.45; color: var(--ink-soft); }
+.live { position: absolute; top: 18px; right: 18px; display: inline-flex; align-items: center; gap: 6px; font: 600 .68rem var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--green); }
+.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+.stage { margin: 18px 0 0; font-size: .9rem; color: var(--ink-faint); }
+
+/* ---------- footer ---------- */
+footer { font-size: .82rem; line-height: 1.8; color: var(--ink-faint); border-top: 1px solid rgba(255,255,255,.08); padding-top: 22px; }
+footer b { color: var(--ink-soft); font-weight: 600; }
+footer a { text-decoration-color: rgba(255,255,255,.25); text-underline-offset: 3px; }
+footer a:hover { color: var(--ink); }
+
+@media (max-width: 1100px) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tile { padding: 15px; border-radius: 18px; gap: 6px; }
+  .tile p { font-size: .78rem; }
+  .ico { width: 30px; height: 30px; }
+  .live { top: 14px; right: 14px; }
+}
+@media (max-width: 460px) {
+  .tiles { grid-template-columns: 1fr; }
+  .tiles { grid-auto-rows: auto; }
+  .tile { min-height: 150px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .band, .tile::before, .live::before, .word .ch, .lede, .tile { animation: none; }
+  .scan { display: none; }
+  .tile { transition: none; }
+}
+</style>
+
 </head>
 <body>
+<div class="sky" aria-hidden="true">
+  <div class="band b1"></div><div class="band b2"></div><div class="band b3"></div><div class="band b4"></div>
+  <div class="stars"></div><div class="grain"></div>
+</div>
 
-
-<div class="wrap">
+<div class="page">
   <header>
-    <div class="brand">AURORA Ai.Lab</div>
+    <div class="mark">AURORA <i>Ai.Lab</i></div>
     <div class="lang" role="group" aria-label="Language">
       <button id="b-en" type="button" aria-pressed="true" data-l="en">EN</button>
       <button id="b-es" type="button" aria-pressed="false" data-l="es">ES</button>
     </div>
   </header>
 
-  <!-- ENGLISH -->
-  <div lang="en" data-lang="en" class="wrap">
-    <section>
-      <h1>Document-processing products and proprietary ML technologies</h1>
-      <p class="lede">Custom neural networks, computer vision, OCR and advanced PDF processing.</p>
-    </section>
+  <section class="hero">
+    <h1 class="word" aria-label="AURORA Ai.Lab">
+      <span class="row" aria-hidden="true" data-split>AURORA</span>
+      <span class="row lab" aria-hidden="true" data-split data-start="6">Ai.Lab</span>
+      <span class="scan" aria-hidden="true"></span>
+    </h1>
+    <p class="lede" data-lang="en">Document-processing products and proprietary ML technologies: custom neural networks, computer vision, OCR and advanced PDF processing.</p>
+    <p class="lede" data-lang="es" hidden>Productos de procesamiento de documentos y tecnologías propias de ML: redes neuronales propias, visión artificial, OCR y procesamiento avanzado de PDF.</p>
+  </section>
 
-    <section>
-      <div class="kvadraty">
-        <a class="kvadrat" href="/ocr.html"><b>AURORA OCR</b><span>OCR for PDFs and scans: character/text-line recognition, font identification and layout analysis.</span></a>
-        <a class="kvadrat" href="https://pdfit.rora.es"><b>AURORA PDFit</b><span>Word-like online PDF editing that preserves fonts, text flow, structure, backgrounds and graphics.</span></a>
-        <div class="kvadrat"><b>AnyColor PDF</b><span>PDF recolouring for printing with available toner or ink colours.</span></div>
-        <div class="kvadrat"><b>AURORA Resuminer</b><span>Deterministic resume parsing into structured XML for ATS integration and search.</span></div>
-        <div class="kvadrat"><b>AURORA RESUMagic</b><span>Structure-aware PDF resume editor for complex Canva and other templates.</span></div>
+  <section aria-label="Products">
+    <div class="tiles">
+      <a class="tile" href="/ocr.html" style="--n:0">
+        <span class="ico"><svg viewBox="0 0 40 40"><path d="M6 12V6h6M28 6h6v6M34 28v6h-6M12 34H6v-6"/><path d="M14 28l6-16 6 16M16.5 22h7"/></svg></span>
+        <h2>AURORA OCR <span class="go">→</span></h2>
+        <p data-lang="en">OCR for PDFs and scans: character/text-line recognition, font identification and layout analysis.</p>
+        <p data-lang="es" hidden>OCR para PDF y escaneos: reconocimiento de caracteres y líneas, identificación de fuentes y análisis de maquetación.</p>
+      </a>
+      <a class="tile" href="https://pdfit.rora.es" style="--n:1">
+        <span class="live">Live</span>
+        <span class="ico"><svg viewBox="0 0 40 40"><path d="M10 5h14l7 7v23H10z"/><path d="M24 5v7h7M15 19h11M15 24h6M24 22v8"/></svg></span>
+        <h2>AURORA PDFit <span class="go">→</span></h2>
+        <p data-lang="en">Word-like online PDF editing that preserves fonts, text flow, structure, backgrounds and graphics.</p>
+        <p data-lang="es" hidden>Edición de PDF en línea como en Word, conservando fuentes, flujo del texto, estructura, fondos y gráficos.</p>
+      </a>
+      <div class="tile" style="--n:2">
+        <span class="ico"><svg viewBox="0 0 40 40"><circle cx="15" cy="16" r="8"/><circle cx="25" cy="16" r="8"/><circle cx="20" cy="25" r="8"/></svg></span>
+        <h2>AnyColor PDF</h2>
+        <p data-lang="en">PDF recolouring for printing with available toner or ink colours.</p>
+        <p data-lang="es" hidden>Recoloreado de PDF para imprimir con los colores de tóner o tinta disponibles.</p>
       </div>
-      <p class="note">Products are at different stages; several are approaching launch.</p>
-    </section>
-  </div>
-
-  <!-- ESPAÑOL -->
-  <div lang="es" data-lang="es" class="wrap" hidden>
-    <section>
-      <h1>Productos de procesamiento de documentos y tecnologías propias de ML</h1>
-      <p class="lede">Redes neuronales propias, visión artificial, OCR y procesamiento avanzado de PDF.</p>
-    </section>
-
-    <section>
-      <div class="kvadraty">
-        <a class="kvadrat" href="/ocr.html"><b>AURORA OCR</b><span>OCR para PDF y escaneos: reconocimiento de caracteres y líneas, identificación de fuentes y análisis de maquetación.</span></a>
-        <a class="kvadrat" href="https://pdfit.rora.es"><b>AURORA PDFit</b><span>Edición de PDF en línea como en Word, conservando fuentes, flujo del texto, estructura, fondos y gráficos.</span></a>
-        <div class="kvadrat"><b>AnyColor PDF</b><span>Recoloreado de PDF para imprimir con los colores de tóner o tinta disponibles.</span></div>
-        <div class="kvadrat"><b>AURORA Resuminer</b><span>Análisis determinista de currículos a XML estructurado para integración con ATS y búsqueda.</span></div>
-        <div class="kvadrat"><b>AURORA RESUMagic</b><span>Editor de currículos en PDF que respeta la estructura de plantillas complejas de Canva y otras.</span></div>
+      <div class="tile" style="--n:3">
+        <span class="ico"><svg viewBox="0 0 40 40"><path d="M6 6h14l6 6v22H6z"/><path d="M11 16h9M11 21h9M11 26h5"/><path d="M29 24l-3 3 3 3M34 24l3 3-3 3"/></svg></span>
+        <h2>AURORA Resuminer</h2>
+        <p data-lang="en">Deterministic resume parsing into structured XML for ATS integration and search.</p>
+        <p data-lang="es" hidden>Análisis determinista de currículos a XML estructurado para integración con ATS y búsqueda.</p>
       </div>
-      <p class="note">Los productos están en distintas fases; varios están cerca del lanzamiento.</p>
-    </section>
-  </div>
+      <div class="tile" style="--n:4">
+        <span class="ico"><svg viewBox="0 0 40 40"><rect x="7" y="6" width="22" height="28" rx="2"/><path d="M12 12h5v8h-5zM20 12h5M20 16h5M20 20h5M12 25h13M12 29h9M33 5v6M30 8h6"/></svg></span>
+        <h2>AURORA RESUMagic</h2>
+        <p data-lang="en">Structure-aware PDF resume editor for complex Canva and other templates.</p>
+        <p data-lang="es" hidden>Editor de currículos en PDF que respeta la estructura de plantillas complejas de Canva y otras.</p>
+      </div>
+    </div>
+    <p class="stage" data-lang="en">Products are at different stages; several are approaching launch.</p>
+    <p class="stage" data-lang="es" hidden>Los productos están en distintas fases; varios están cerca del lanzamiento.</p>
+  </section>
 
   <footer>
     <b>AURORA Ai.Lab</b> by <b>Sistema de Autorecluta, S.L.</b><br>
@@ -65,24 +217,55 @@
     <a href="https://es.linkedin.com/in/vladimir-rora">Vladimir Rora on LinkedIn</a><br>
     Company: <a href="https://www.linkedin.com/company/aurora-ocr-lab/">AURORA Ai.Lab on LinkedIn</a> ·
     <a href="mailto:info@rora.es">info@rora.es</a> ·
-    <a href="https://rora.es/Aurora_OCR_pitch_deck.pdf">Pitch deck (PDF)</a><br>
+    <a href="/Aurora_OCR_pitch_deck.pdf">Pitch deck (PDF)</a><br>
     © 2025–2026 Sistema de Autorecluta, S.L. · Spain<br>
-    <span class="links"><a href="/legal.html">Legal notice / Aviso legal</a> · <a href="/privacy.html">Privacy / Privacidad</a></span>
+    <a href="/legal.html">Legal notice / Aviso legal</a> · <a href="/privacy.html">Privacy / Privacidad</a>
   </footer>
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "Organization",
-   "name": "Sistema de Autorecluta, S.L.", "legalName": "Sistema de Autorecluta, Sociedad Limitada",
-   "brand": {"@type": "Brand", "name": "AURORA Ai.Lab"}, "url": "https://rora.es", "email": "info@rora.es",
-   "taxID": "B21823760", "foundingDate": "2025-04-04",
-   "address": {"@type": "PostalAddress", "streetAddress": "Av. Derramador 10, piso 10, pta B",
-               "postalCode": "03503", "addressLocality": "Benidorm", "addressRegion": "Alicante", "addressCountry": "ES"},
-   "founder": {"@type": "Person", "name": "Vladimir Rora", "jobTitle": "Founder & CEO", "email": "vladimir@rora.es",
-               "sameAs": "https://es.linkedin.com/in/vladimir-rora"},
-   "sameAs": ["https://www.linkedin.com/company/aurora-ocr-lab/"]}
-  </script>
 </div>
 
-<script src="/lang.js"></script>
+<script>
+(function () {
+  /* wordmark letters, each with its own delay for the "being read" effect */
+  document.querySelectorAll("[data-split]").forEach(function (row) {
+    var start = +(row.getAttribute("data-start") || 0), txt = row.textContent;
+    row.textContent = "";
+    for (var i = 0; i < txt.length; i++) {
+      var s = document.createElement("span");
+      s.className = "ch"; s.textContent = txt[i];
+      s.style.setProperty("--i", start + i); s.style.setProperty("--j", i);
+      row.appendChild(s);
+    }
+  });
+
+  /* glass tilt and light follow the cursor; only for a real mouse */
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".tile").forEach(function (t) {
+      t.addEventListener("animationend", function (e) { if (e.animationName === "tileIn") t.style.animation = "none"; });
+      t.addEventListener("pointermove", function (e) {
+        var r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        t.style.setProperty("--mx", (x * 100) + "%"); t.style.setProperty("--my", (y * 100) + "%");
+        t.style.setProperty("--ry", ((x - .5) * 10) + "deg"); t.style.setProperty("--rx", ((.5 - y) * 10) + "deg");
+      });
+      t.addEventListener("pointerleave", function () { t.style.setProperty("--rx", "0deg"); t.style.setProperty("--ry", "0deg"); });
+    });
+  }
+
+  /* EN / ES */
+  var bloki = document.querySelectorAll("[data-lang]"), knopki = document.querySelectorAll(".lang button");
+  function pokazat(l) {
+    bloki.forEach(function (b) { b.hidden = b.getAttribute("data-lang") !== l; });
+    knopki.forEach(function (k) { k.setAttribute("aria-pressed", k.getAttribute("data-l") === l ? "true" : "false"); });
+    document.documentElement.lang = l;
+    try { localStorage.setItem("lang", l); } catch (e) { /* language is not remembered, default is shown */ }
+  }
+  knopki.forEach(function (k) { k.addEventListener("click", function () { pokazat(k.getAttribute("data-l")); }); });
+  var l = null;
+  try { l = localStorage.getItem("lang"); } catch (e) { l = null; }
+  if (!l && (navigator.language || "").slice(0, 2) === "es") l = "es";
+  pokazat(l === "es" ? "es" : "en");
+})();
+</script>
 
 </body>
 </html>
