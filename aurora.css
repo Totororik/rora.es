@@ -344,8 +344,9 @@ ol.steps li { align-content: start; }
 /* ---------- original font vs a substitute: one name in the invoice greeting ---------- */
 @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/plus-jakarta-sans-700-latin.woff2) format('woff2'); }
 .fontdemo { margin-top: 14px; }
-.fontdemo .hola { margin: 0; padding: .7em .8em; border-radius: 10px; background: #fff; color: #00cfa7; font: 700 clamp(1.5rem, 3.2vw, 2.5rem)/1.2 'Plus Jakarta Sans', var(--body); white-space: nowrap; overflow: hidden; }
-.fontdemo .bad .nm.sub { font-family: 'Times New Roman', Times, serif; }
+@font-face { font-family: 'Lobster'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/lobster-400-latin.woff2) format('woff2'); }
+.fontdemo .hola { margin: 0; padding: .5em .7em; border-radius: 10px; background: #fff; color: #00806b; font: 400 clamp(2rem, 4.6vw, 3.6rem)/1.25 'Lobster', cursive; white-space: nowrap; overflow: hidden; }
+.fontdemo .bad .nm.sub { font-family: Arial, Helvetica, sans-serif; }
 /* ---------- the invoice demo types by itself (demo.js), like a screen recording ---------- */
 .demo .ed { white-space: pre; font-family: 'Plus Jakarta Sans', var(--body); font-weight: 300; color: #000; }
 .demo .ed > div { min-height: 1em; }

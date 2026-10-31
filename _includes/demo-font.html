@@ -1,10 +1,10 @@
 {%- assign L = page.lang | default: "en" -%}
 {%- if L == "es" -%}
-{%- assign f_label = "Ilustración: en el saludo de la factura el nombre Ana se cambia por María. En otros editores de PDF el nombre nuevo sale con una fuente sustituta; en AURORA PDFit, con la fuente original." -%}
+{%- assign f_label = "Ilustración: en un saludo escrito con una fuente decorativa el nombre Ana se cambia por María. En otros editores de PDF el nombre nuevo sale con una fuente sustituta; en AURORA PDFit, con la fuente original." -%}
 {%- assign f_bad = "Otros editores de PDF" -%}{%- assign f_good = "AURORA PDFit" -%}
 {%- assign f_vbad = "Fuente sustituta: el cambio se nota" -%}{%- assign f_vgood = "Fuente original: el cambio no se nota" -%}
 {%- else -%}
-{%- assign f_label = "Illustration: in the invoice greeting the name Ana is changed to María. In other PDF editors the new name comes out in a substitute font; in AURORA PDFit, in the original font." -%}
+{%- assign f_label = "Illustration: in a greeting set in a decorative font the name Ana is changed to María. In other PDF editors the new name comes out in a substitute font; in AURORA PDFit, in the original font." -%}
 {%- assign f_bad = "Other PDF editors" -%}{%- assign f_good = "AURORA PDFit" -%}
 {%- assign f_vbad = "A substitute font: the edit shows" -%}{%- assign f_vgood = "The original font: the edit is invisible" -%}
 {%- endif %}
