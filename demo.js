@@ -3,7 +3,7 @@
 // a script, not css keyframes: it works the same in every browser, including safari on iphone.
 (function () {
   var TOP = ['Persona de contacto: Ana López', 'Teléfono: 600 000 000', 'Email: ana@ejemplo.es', 'Horario: de 9:00 a 18:00'];
-  var TIP = ['luz del sol. Apaga lo que no uses', 'y desenchufa los aparatos en', 'standby. Deja entrar también la']; // typed into the middle of the tip
+  var TIP = ['luz del sol. Apaga lo que no uses', 'y desenchufa los aparatos en', 'standby: gastan hasta un 10 %', 'de tu factura. Por la mañana', 'deja entrar también la']; // typed into the middle of the tip
   var ROWS = [['Alquiler de contador', '0,00€'], ['Bono social', '0,00€'], ['Servicio de mantenimiento', '0,00€'],
     ['Energía reactiva', '0,00€'], ['Compensación de excedentes', '0,00€']];
   var CHAR = 45; // ms per typed letter
