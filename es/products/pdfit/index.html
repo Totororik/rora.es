@@ -15,13 +15,14 @@ description: "AURORA PDFit es un editor de PDF en línea: cambia el texto de un 
     <section class="sec">
       <h2>Mira la diferencia</h2>
 {% include demo.html %}
+{% include demo-font.html %}
     </section>
 
     <section class="sec">
       <h2>Qué puedes hacer</h2>
       <div class="layers">
         <div><h3>Los marcos crecen con tu texto</h3><p>Añade una línea dentro de un recuadro y su marco y su fondo se estiran para que quepa. El bloque de abajo baja.</p></div>
-        <div><h3>La fuente original</h3><p>PDFit escribe con las fuentes incrustadas en el PDF, así que el texto nuevo se parece al anterior.</p></div>
+        <div><h3>La fuente original</h3><p>Las palabras nuevas usan la fuente del propio PDF. Si es rara o el PDF la lleva solo en parte, la encontramos en nuestra colección de {{ site.data.metrics.fonts.value.es }} fuentes.</p></div>
         <div><h3>Todo lo demás se queda en su sitio</h3><p>Columnas, líneas, iconos y fotos mantienen su lugar.</p></div>
       </div>
     </section>
@@ -39,7 +40,7 @@ description: "AURORA PDFit es un editor de PDF en línea: cambia el texto de un 
     <section class="sec">
       <h2>Preguntas</h2>
       <div class="faq">
-        <details><summary>¿Mantiene la fuente original?</summary><p>PDFit usa las fuentes incrustadas en el PDF. Muchos PDF incluyen solo las letras que se usaron, así que el resultado depende del archivo.</p></details>
+        <details><summary>¿Mantiene la fuente original?</summary><p>En la mayoría de los casos, sí. Muchos PDF llevan solo las letras que se usaron. PDFit reconoce la fuente y toma la versión completa de nuestra colección de {{ site.data.metrics.fonts.value.es }} fuentes, en lugar de una sustituta como Arial.</p></details>
         <details><summary>¿Tengo que instalar algo?</summary><p>No. PDFit funciona en el navegador.</p></details>
       </div>
     </section>

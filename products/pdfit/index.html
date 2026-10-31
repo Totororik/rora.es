@@ -15,13 +15,14 @@ description: "AURORA PDFit is an online PDF editor: change the text in a designe
     <section class="sec">
       <h2>See the difference</h2>
 {% include demo.html %}
+{% include demo-font.html %}
     </section>
 
     <section class="sec">
       <h2>What you can do</h2>
       <div class="layers">
         <div><h3>Frames grow with your text</h3><p>Add a line inside a box, and its frame and background stretch to fit. The block below moves down.</p></div>
-        <div><h3>The original font</h3><p>PDFit types in the fonts embedded in the PDF, so new text looks like the old one.</p></div>
+        <div><h3>The original font</h3><p>New words are set in the PDF's own font. If it is rare or only partly embedded, we find it in our collection of {{ site.data.metrics.fonts.value.en }} fonts.</p></div>
         <div><h3>Everything else stays put</h3><p>Columns, lines, icons and photos keep their places.</p></div>
       </div>
     </section>
@@ -39,7 +40,7 @@ description: "AURORA PDFit is an online PDF editor: change the text in a designe
     <section class="sec">
       <h2>Questions</h2>
       <div class="faq">
-        <details><summary>Does it keep the original font?</summary><p>PDFit uses the fonts embedded in the PDF. Many PDFs include only the letters that were used, so the result depends on the file.</p></details>
+        <details><summary>Does it keep the original font?</summary><p>In most cases, yes. Many PDFs carry only the letters that were used. PDFit recognises the font and takes the full version from our collection of {{ site.data.metrics.fonts.value.en }} fonts, instead of a substitute such as Arial.</p></details>
         <details><summary>Do I need to install anything?</summary><p>No. PDFit works in your browser.</p></details>
       </div>
     </section>
