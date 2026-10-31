@@ -309,4 +309,7 @@ ul.chips li { padding: 6px 12px; border-radius: 999px; font-size: .88rem; color:
   .card .tag { position: static; align-self: flex-start; margin-bottom: 10px; }
 }
 /* five menu items: the tagline steps aside before the menu folds */
-@media (max-width: 1280px) { header.top .mark .tagline { display: none; } }
+@media (max-width: 1500px) { header.top .mark .tagline { display: none; } }
+.nav a { white-space: nowrap; }
+/* number, label and note stack from the top, so labels line up across a row */
+.score { align-content: start; }
