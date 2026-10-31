@@ -1,0 +1,67 @@
+---
+lang: en
+alt: /es/technology/
+section: technology
+title: "Technology — AURORA Ai.Lab"
+description: "The technology behind AURORA Ai.Lab: font and glyph data, character recognition, document structure, structure-aware PDF editing, and model training and evaluation."
+---
+    <section class="hero prod">
+      <p class="eyebrow">Technology</p>
+      <h1><span class="line"><span class="w hl" style="--i:0">The technology</span></span> <span class="line"><span class="w" style="--i:1">behind better document workflows</span></span><span class="scan" aria-hidden="true"></span></h1>
+      <p class="prod-lede">Our work combines recognition models, our own font and glyph data, document-processing methods and structure-aware editing.</p>
+    </section>
+
+    <section class="sec">
+      <h2>From data to products</h2>
+      <ol class="steps">
+        <li><b>Data</b><span>Fonts, character fingerprints, checked glyphs</span></li>
+        <li><b>Recognition</b><span>Characters and text lines · AURORA OCR</span></li>
+        <li><b>Structure</b><span>Layout, sections, fields · AURORA Resuminer</span></li>
+        <li><b>Editing</b><span>Change content, keep the design · AURORA PDFit, RESUMagic</span></li>
+        <li><b>Products</b><span>Tools for people and technology for teams</span></li>
+      </ol>
+      <p class="note">Each product uses the technologies its task needs. The diagram shows our areas of expertise, not one model shared by every product.</p>
+    </section>
+
+    <section class="sec">
+      <h2>Character and font intelligence</h2>
+      <p>Every recognition and editing task starts with the shape of a character in a particular font. We collected and checked this data ourselves.</p>
+      <div class="panel">
+        <div class="scores four">
+{% include metric.html id="fonts" %}
+{% include metric.html id="fingerprints" %}
+{% include metric.html id="glyphs" %}
+{% include metric.html id="characters" %}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Recognition</h2>
+      <p>A character model built on ConvNeXt-Small (≈ 49.5 M parameters) reads single characters at ≈ 99.85 % on clean and ≈ 99.65 % on scan-like characters in our internal test. The next stage reads whole text lines; preliminary line accuracy is about 93–94 %.</p>
+      <p><a class="more-link" href="/ocr.html">AURORA OCR: numbers and method →</a></p>
+    </section>
+
+    <section class="sec">
+      <h2>Document structure</h2>
+      <p>A document is more than text: columns, headings, blocks and the relations between them. For résumés we map this structure to a schema of 234 fields in 21 blocks.</p>
+      <p><a class="more-link" href="/resuminer.html">AURORA Resuminer →</a></p>
+    </section>
+
+    <section class="sec">
+      <h2>Processing and editing</h2>
+      <p>Editing a PDF means changing content while the typography, layout and graphics stay as they were. PDFit uses the fonts embedded in the document; RESUMagic, in development, adds an understanding of résumé sections and blocks.</p>
+      <p><a class="more-link" href="/products/pdfit/">AURORA PDFit →</a></p>
+    </section>
+
+    <section class="sec">
+      <h2>Training and evaluation</h2>
+      <p>Models are trained with hard-example mining, targeted retraining and simulated scanner and camera damage. They are tested on held-out internal data and on public benchmarks, olmOCR-bench and UNLV.</p>
+      <p><a class="more-link" href="/ml.html">AURORA ML Training →</a></p>
+    </section>
+
+    <section class="sec final panel">
+      <h2>Want to use this technology?</h2>
+      <p>Tell us about your documents and what you need to achieve.</p>
+      <div class="ctas"><a class="btn" href="/contact/">Discuss your use case <span class="go" aria-hidden="true">→</span></a></div>
+    </section>

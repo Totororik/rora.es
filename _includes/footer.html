@@ -5,7 +5,7 @@
         {%- for p in site.data.products %}{% if p.audience == "people" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}</div>
       <div><b>{{ T.business_tech }}</b>
         {%- for p in site.data.products %}{% if p.audience == "business" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}</div>
-      <div><b>{{ T.company }}</b><a href="{{ P }}/contact/">{{ T.contact }}</a><a href="{{ S.linkedin }}">LinkedIn</a><a href="mailto:{{ S.email }}">{{ S.email }}</a></div>
+      <div><b>{{ T.company }}</b><a href="{{ P }}/technology/">{{ T.technology }}</a><a href="{{ P }}/about/">{{ T.about }}</a><a href="{{ P }}/contact/">{{ T.contact }}</a><a href="{{ S.linkedin }}">LinkedIn</a><a href="mailto:{{ S.email }}">{{ S.email }}</a></div>
     </div>
     <div class="foot-legal">
       <b>AURORA Ai.Lab</b> {{ T.foot_by }} <b>{{ S.legal }}</b><br>

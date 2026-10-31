@@ -1,0 +1,67 @@
+---
+lang: es
+alt: /technology/
+section: technology
+title: "Tecnología — AURORA Ai.Lab"
+description: "La tecnología de AURORA Ai.Lab: datos de fuentes y glifos, reconocimiento de caracteres, estructura de documentos, edición de PDF que respeta la estructura, y entrenamiento y evaluación de modelos."
+---
+    <section class="hero prod">
+      <p class="eyebrow">Tecnología</p>
+      <h1><span class="line"><span class="w hl" style="--i:0">La tecnología</span></span> <span class="line"><span class="w" style="--i:1">detrás de mejores procesos de documentos</span></span><span class="scan" aria-hidden="true"></span></h1>
+      <p class="prod-lede">Nuestro trabajo combina modelos de reconocimiento, nuestros propios datos de fuentes y glifos, métodos de procesamiento de documentos y edición que respeta la estructura.</p>
+    </section>
+
+    <section class="sec">
+      <h2>De los datos a los productos</h2>
+      <ol class="steps">
+        <li><b>Datos</b><span>Fuentes, huellas de caracteres, glifos revisados</span></li>
+        <li><b>Reconocimiento</b><span>Caracteres y líneas de texto · AURORA OCR</span></li>
+        <li><b>Estructura</b><span>Maquetación, secciones, campos · AURORA Resuminer</span></li>
+        <li><b>Edición</b><span>Cambiar el contenido, mantener el diseño · AURORA PDFit, RESUMagic</span></li>
+        <li><b>Productos</b><span>Herramientas para personas y tecnología para equipos</span></li>
+      </ol>
+      <p class="note">Cada producto usa las tecnologías que necesita su tarea. El esquema muestra nuestras áreas de experiencia, no un único modelo compartido por todos los productos.</p>
+    </section>
+
+    <section class="sec">
+      <h2>Inteligencia de caracteres y fuentes</h2>
+      <p>Toda tarea de reconocimiento y edición empieza por la forma de un carácter en una fuente concreta. Estos datos los hemos reunido y revisado nosotros.</p>
+      <div class="panel">
+        <div class="scores four">
+{% include metric.html id="fonts" %}
+{% include metric.html id="fingerprints" %}
+{% include metric.html id="glyphs" %}
+{% include metric.html id="characters" %}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2>Reconocimiento</h2>
+      <p>Un modelo de caracteres basado en ConvNeXt-Small (≈ 49,5 M parámetros) lee caracteres sueltos con ≈ 99,85 % en caracteres limpios y ≈ 99,65 % en caracteres tipo escaneo en nuestra prueba interna. La siguiente etapa lee líneas de texto completas; la precisión preliminar por línea es de alrededor del 93–94 %.</p>
+      <p><a class="more-link" href="/es/ocr.html">AURORA OCR: cifras y método →</a></p>
+    </section>
+
+    <section class="sec">
+      <h2>Estructura del documento</h2>
+      <p>Un documento es más que texto: columnas, títulos, bloques y las relaciones entre ellos. En los currículos llevamos esta estructura a un esquema de 234 campos en 21 bloques.</p>
+      <p><a class="more-link" href="/es/resuminer.html">AURORA Resuminer →</a></p>
+    </section>
+
+    <section class="sec">
+      <h2>Procesamiento y edición</h2>
+      <p>Editar un PDF significa cambiar el contenido sin tocar la tipografía, la maquetación ni los gráficos. PDFit usa las fuentes incrustadas en el documento; RESUMagic, en desarrollo, añade la comprensión de las secciones y bloques del currículum.</p>
+      <p><a class="more-link" href="/es/products/pdfit/">AURORA PDFit →</a></p>
+    </section>
+
+    <section class="sec">
+      <h2>Entrenamiento y evaluación</h2>
+      <p>Los modelos se entrenan con minería de ejemplos difíciles, reentrenamiento dirigido y daños simulados de escáner y cámara. Se prueban con datos internos reservados y con bancos de pruebas públicos, olmOCR-bench y UNLV.</p>
+      <p><a class="more-link" href="/es/ml.html">AURORA ML Training →</a></p>
+    </section>
+
+    <section class="sec final panel">
+      <h2>¿Quieres usar esta tecnología?</h2>
+      <p>Cuéntanos tus documentos y lo que necesitas conseguir.</p>
+      <div class="ctas"><a class="btn" href="/es/contact/">Cuéntanos tu caso de uso <span class="go" aria-hidden="true">→</span></a></div>
+    </section>

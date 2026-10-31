@@ -3,6 +3,8 @@
     <nav class="nav" aria-label="{{ T.nav_label }}">
       <a href="{{ P }}/individuals/"{% if page.section == "people" %} aria-current="page"{% endif %}>{{ T.people }}</a>
       <a href="{{ P }}/business/"{% if page.section == "business" %} aria-current="page"{% endif %}>{{ T.business }}</a>
+      <a href="{{ P }}/technology/"{% if page.section == "technology" %} aria-current="page"{% endif %}>{{ T.technology }}</a>
+      <a href="{{ P }}/about/"{% if page.section == "about" %} aria-current="page"{% endif %}>{{ T.about }}</a>
       <a href="{{ P }}/contact/"{% if page.section == "contact" %} aria-current="page"{% endif %}>{{ T.contact }}</a>
     </nav>
     <nav class="lang" aria-label="{{ T.lang_label }}">
@@ -19,7 +21,7 @@
         <div><b>{{ T.business_tech }}</b>
           {%- for p in site.data.products %}{% if p.audience == "business" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}
           <a href="{{ P }}/business/">{{ T.business }} →</a></div>
-        <div><b>{{ T.company }}</b><a href="{{ P }}/contact/">{{ T.contact }}</a></div>
+        <div><b>{{ T.company }}</b><a href="{{ P }}/technology/">{{ T.technology }}</a><a href="{{ P }}/about/">{{ T.about }}</a><a href="{{ P }}/contact/">{{ T.contact }}</a></div>
         <a class="btn" href="{{ S.pdfit }}">{{ T.try_pdfit }} <span class="go" aria-hidden="true">→</span></a>
       </div>
     </details>
