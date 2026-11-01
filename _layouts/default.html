@@ -30,6 +30,25 @@
 <link rel="preload" href="/fonts/syne-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/aurora.css">
 <link rel="stylesheet" href="/aurora.css">
+<script>
+/* language: a choice the visitor made wins; otherwise the browser's language on arrival (Spanish → ES, anything else → EN).
+   Only when arriving from outside, never for search robots, so links shared and pages indexed stay as they are */
+(function () {
+  try {
+    var cur = "{{ L }}", url = { en: "{{ en_url }}", es: "{{ es_url }}" };
+    if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+    if (document.referrer.indexOf(location.origin + "/") === 0) return;
+    var want = localStorage.getItem("rora_lang");
+    if (!want) want = ((navigator.languages && navigator.languages[0]) || navigator.language || "en").slice(0, 2).toLowerCase() === "es" ? "es" : "en";
+    if (want !== cur && url[want] && url[want] !== location.pathname) location.replace(url[want] + location.search + location.hash);
+  } catch (e) {}
+})();
+document.addEventListener("click", function (e) {
+  var a = e.target.closest(".jazyk-spisok a");
+  if (a) { try { localStorage.setItem("rora_lang", a.dataset.j); } catch (er) {} }
+  document.querySelectorAll("details.jazyk[open], details.menu[open]").forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute("open"); });
+});
+</script>
 </head>
 <body>
 <a class="skip" href="#main">{{ T.skip }}</a>

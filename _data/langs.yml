@@ -1,0 +1,3 @@
+# languages of the site, in the order of the language list; a new language is one more line here (and its pages)
+- { code: en, name: English }
+- { code: es, name: Español }

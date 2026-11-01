@@ -7,11 +7,14 @@
       <a href="{{ P }}/about/"{% if page.section == "about" %} aria-current="page"{% endif %}>{{ T.about }}</a>
       <a href="{{ P }}/contact/"{% if page.section == "contact" %} aria-current="page"{% endif %}>{{ T.contact }}</a>
     </nav>
-    <nav class="lang" aria-label="{{ T.lang_label }}">
-      <a href="{{ en_url }}" hreflang="en" lang="en"{% if L == "en" %} aria-current="true"{% endif %}>EN</a>
-      <a href="{{ es_url }}" hreflang="es" lang="es"{% if L == "es" %} aria-current="true"{% endif %}>ES</a>
-    </nav>
-    <a class="cta-top" href="{{ S.pdfit }}?lang={{ L }}">{{ T.try_pdfit }}</a>
+    <details class="jazyk">
+      <summary aria-label="{{ T.lang_label }}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>{{ L | upcase }}<svg class="ug" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></summary>
+      <nav class="jazyk-spisok" aria-label="{{ T.lang_label }}">
+        {%- for j in site.data.langs %}{% if j.code == "es" %}{% assign u = es_url %}{% else %}{% assign u = en_url %}{% endif %}
+        <a href="{{ u }}" hreflang="{{ j.code }}" lang="{{ j.code }}" data-j="{{ j.code }}"{% if L == j.code %} aria-current="true"{% endif %}><b>{{ j.code | upcase }}</b>{{ j.name }}</a>
+        {%- endfor %}
+      </nav>
+    </details>
     <details class="menu">
       <summary aria-label="{{ T.menu }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
       <div class="menu-panel">
@@ -22,7 +25,6 @@
           {%- for p in site.data.products %}{% if p.audience == "business" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}
           <a href="{{ P }}/business/">{{ T.business }} →</a></div>
         <div><b>{{ T.company }}</b><a href="{{ P }}/technology/">{{ T.technology }}</a><a href="{{ P }}/about/">{{ T.about }}</a><a href="{{ P }}/contact/">{{ T.contact }}</a></div>
-        <a class="btn" href="{{ S.pdfit }}?lang={{ L }}">{{ T.try_pdfit }} <span class="go" aria-hidden="true">→</span></a>
       </div>
     </details>
   </header>
