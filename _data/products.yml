@@ -20,8 +20,8 @@
 - id: anycolor
   name: "AnyColor PDF"
   audience: people
-  status: soon
-  href: { en: "/individuals/#anycolor", es: "/es/individuals/#anycolor" }
+  status: live
+  href: { en: "https://anycolor.rora.es/?lang=en", es: "https://anycolor.rora.es/?lang=es" }
   page: { en: "/individuals/#anycolor", es: "/es/individuals/#anycolor" }
   action: { en: "Recolour a PDF", es: "Cambia los colores de un PDF" }
   short: { en: "Recolour a whole PDF in one click", es: "Cambia el color de todo un PDF con un clic" }
