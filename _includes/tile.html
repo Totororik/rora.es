@@ -4,5 +4,5 @@
         <a class="tile link{% if p.status == 'live' %} primary{% endif %}" href="{{ p.href[L] }}" style="--n:{{ include.n }}">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 40 40">{{ p.icon }}</svg></span>
           <span class="tag {{ site.data.t.status_class[p.status] }}">{{ T.status[p.status] }}</span>
-          <span class="txt"><h3>{{ p.name }} <span class="go" aria-hidden="true">→</span></h3><p>{{ p.short[L] }}</p></span>
+          <span class="txt"><h3>{{ p.action[L] }} <span class="go" aria-hidden="true">→</span></h3><p>{{ p.short[L] }}</p><span class="brand">{{ p.name }}</span></span>
         </a>

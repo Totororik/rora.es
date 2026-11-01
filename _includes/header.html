@@ -11,7 +11,7 @@
       <a href="{{ en_url }}" hreflang="en" lang="en"{% if L == "en" %} aria-current="true"{% endif %}>EN</a>
       <a href="{{ es_url }}" hreflang="es" lang="es"{% if L == "es" %} aria-current="true"{% endif %}>ES</a>
     </nav>
-    <a class="cta-top" href="{{ S.pdfit }}">{{ T.try_pdfit }}</a>
+    <a class="cta-top" href="{{ S.pdfit }}?lang={{ L }}">{{ T.try_pdfit }}</a>
     <details class="menu">
       <summary aria-label="{{ T.menu }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
       <div class="menu-panel">
@@ -22,7 +22,7 @@
           {%- for p in site.data.products %}{% if p.audience == "business" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}
           <a href="{{ P }}/business/">{{ T.business }} →</a></div>
         <div><b>{{ T.company }}</b><a href="{{ P }}/technology/">{{ T.technology }}</a><a href="{{ P }}/about/">{{ T.about }}</a><a href="{{ P }}/contact/">{{ T.contact }}</a></div>
-        <a class="btn" href="{{ S.pdfit }}">{{ T.try_pdfit }} <span class="go" aria-hidden="true">→</span></a>
+        <a class="btn" href="{{ S.pdfit }}?lang={{ L }}">{{ T.try_pdfit }} <span class="go" aria-hidden="true">→</span></a>
       </div>
     </details>
   </header>
