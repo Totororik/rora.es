@@ -1,7 +1,7 @@
 # rora.es is built by GitHub Pages (Jekyll). Pages with front matter use _layouts/default.html;
 # files without front matter (legal.html, privacy.html, 404.html, css, js, fonts) are copied as they are.
 url: "https://rora.es"
-title: "AURORA Ai.Lab"
+title: "AURORA AI OCR"
 plugins:
   - jekyll-sitemap
 exclude:

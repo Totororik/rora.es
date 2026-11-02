@@ -1,6 +1,6 @@
   <footer>
     <div class="foot-cols">
-      <div><b>AURORA Ai.Lab</b><span>{{ T.foot_brand }}</span></div>
+      <div><b>AURORA AI OCR</b><span>{{ T.foot_brand }}</span></div>
       <div><b>{{ T.personal_tools }}</b>
         {%- for p in site.data.products %}{% if p.audience == "people" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}</div>
       <div><b>{{ T.business_tech }}</b>
@@ -8,10 +8,10 @@
       <div><b>{{ T.company }}</b><a href="{{ P }}/technology/">{{ T.technology }}</a><a href="{{ P }}/about/">{{ T.about }}</a><a href="{{ P }}/contact/">{{ T.contact }}</a><a href="{{ S.linkedin }}">LinkedIn</a><a href="mailto:{{ S.email }}">{{ S.email }}</a></div>
     </div>
     <div class="foot-legal">
-      <b>AURORA Ai.Lab</b> {{ T.foot_by }} <b>{{ S.legal }}</b><br>
+      <b>AURORA AI OCR</b> {{ T.foot_by }} <b>{{ S.legal }}</b><br>
       {{ T.foot_cif }} {{ S.cif }} · {{ T.foot_founded }}<br>
       {{ T.foot_founder }}: <b>{{ S.founder }}</b> · <a href="mailto:{{ S.founder_email }}">{{ S.founder_email }}</a><br>
-      LinkedIn: <a href="{{ S.linkedin }}">AURORA Ai.Lab</a> · <a href="mailto:{{ S.email }}">{{ S.email }}</a><br>
+      LinkedIn: <a href="{{ S.linkedin }}">AURORA AI OCR</a> · <a href="mailto:{{ S.email }}">{{ S.email }}</a><br>
       © 2025–2026 {{ S.legal }} · {{ T.foot_country }}<br>
       <a href="/legal.html">{{ T.legal_link }}</a> · <a href="/privacy.html">{{ T.privacy_link }}</a>
     </div>
