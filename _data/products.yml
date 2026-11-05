@@ -8,15 +8,15 @@
   action: { en: "Edit PDF", es: "Editar PDF" }
   short: { en: "Edit PDFs without breaking the design", es: "Edita PDF sin romper el diseño" }
   icon: '<path d="M10 5h14l7 7v23H10z"/><path d="M24 5v7h7M15 19h11M15 24h6M24 22v8"/>'
-- id: resumagic
-  name: "AURORA RESUMagic"
+- id: split
+  name: "AURORA Split PDF"
   audience: people
-  status: soon
-  href: { en: "/individuals/#resumagic", es: "/es/individuals/#resumagic" }
-  page: { en: "/individuals/#resumagic", es: "/es/individuals/#resumagic" }
-  action: { en: "Update your résumé", es: "Actualiza tu currículum" }
-  short: { en: "Add a job, the template rearranges itself", es: "Añade un empleo y la plantilla se reorganiza" }
-  icon: '<rect x="7" y="6" width="22" height="28" rx="2"/><path d="M12 12h5v8h-5zM20 12h5M20 16h5M20 20h5M12 25h13M12 29h9M33 5v6M30 8h6"/>'
+  status: live
+  href: { en: "/razrezat-pdf/", es: "/razrezat-pdf/?lang=es" }
+  page: { en: "/razrezat-pdf/", es: "/razrezat-pdf/?lang=es" }
+  action: { en: "Split a PDF", es: "Divide un PDF" }
+  short: { en: "Save chosen pages as separate PDFs", es: "Guarda las páginas que elijas como PDF separados" }
+  icon: '<circle cx="11" cy="12" r="4"/><circle cx="11" cy="28" r="4"/><path d="M14 14.5L34 30M14 25.5L34 10"/>'
 - id: anycolor
   name: "AnyColor PDF"
   audience: people
