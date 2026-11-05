@@ -359,7 +359,9 @@ ol.steps li { align-content: start; }
 .demo .g3 { background-image: url(/img/factura-f3.png); }
 .demo .coll { width: calc(202 * var(--k)); }
 .verdict { margin: 12px 0 0; font-size: .9rem; font-weight: 600; color: #ff8a9a; }
-.demo-side.good .verdict { color: var(--green); }
+/* 05.11 хозяин: «✕ Text runs over the page…» — красным, как на странице PDFit (.sec p перекрашивал её в серый) */
+.sec .demo-side .verdict { color: #ff8a9a; }
+.demo-side.good .verdict, .sec .demo-side.good .verdict { color: var(--green); }
 @media (max-width: 720px) { .demo { grid-template-columns: 1fr; } }
 /* ---------- original font vs a substitute: one name in the invoice greeting ---------- */
 @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/plus-jakarta-sans-700-latin.woff2) format('woff2'); }
