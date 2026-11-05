@@ -1,14 +1,14 @@
 # one source for every number on the site; "verified" is the date the number was last checked against our own records
 fonts:
-  verified: 2026-10-31
-  value: { en: "219,171", es: "219.171" }
+  verified: 2026-11-05
+  value: { en: "380,849", es: "380.849" }
   label: { en: "unique fonts", es: "fuentes únicas" }
   def:
     en: "Consolidated from 374,936 font files: copies of one font are counted once."
     es: "A partir de 374.936 archivos de fuentes: las copias de una misma fuente cuentan una vez."
 fingerprints:
-  verified: 2026-10-23
-  value: { en: "13.3 M", es: "13,3 M" }
+  verified: 2026-11-05
+  value: { en: "24.0 M", es: "24,0 M" }
   label: { en: "character fingerprints", es: "huellas de caracteres" }
   def:
     en: "A compact description of one character's shape in one font, used to find fonts and look-alike letters."
