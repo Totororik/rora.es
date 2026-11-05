@@ -92,6 +92,11 @@ h1 .w.hl { color: transparent; -webkit-background-clip: text; background-clip: t
 .group { display: grid; gap: 12px; min-width: 0; }
 .group h2 { margin: 0; font: 600 .95rem var(--body); color: var(--ink-soft); }
 .g-biz { position: relative; padding-left: 28px; border-left: 1px solid rgba(255,255,255,.08); }
+/* 05.11 хозяин: «Для людей» — четыре квадрата в одну строку; «Для бизнеса» — своей секцией под образцами */
+.groups.odna { grid-template-columns: 1fr; }
+.groups.odna .g-biz { padding-left: 0; border-left: 0; }
+.g-people .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.products-biz { margin-top: 8px; }
 .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 14px; perspective: 900px; }
 .api { justify-self: start; font-weight: 600; color: var(--teal); text-decoration: none; padding: 4px 0; }
 .api span { display: inline-block; transition: transform .3s cubic-bezier(.16, 1, .3, 1); }
@@ -145,10 +150,11 @@ footer a:hover { color: var(--ink); }
 @media (max-width: 1100px) {
   .groups { grid-template-columns: 1fr; }
   .g-biz { padding-left: 0; border-left: 0; }
+  .g-people .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 /* phone: squares become compact rows so several fit on the first screen */
 @media (max-width: 720px) {
-  .tiles, .g-biz .tiles { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 10px; }
+  .tiles, .g-biz .tiles, .g-people .tiles { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 10px; }
   .tile { min-height: 0; flex-direction: row; align-items: flex-start; gap: 14px; padding: 14px 16px; border-radius: 18px; }
   .ico { width: 30px; height: 30px; margin-top: 2px; }
   .txt { margin-top: 0; padding-right: 88px; }
