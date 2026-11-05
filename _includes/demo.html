@@ -11,7 +11,7 @@
 {%- assign d_note = "A real invoice with personal details replaced. Illustration." -%}{%- assign d_replay = "Replay the animation" -%}{%- assign d_ed1 = "New text under the address" -%}{%- assign d_ed2 = "New rows in the summary" -%}
 {%- endif %}
       <div class="demo invdemo" role="img" aria-label="{{ d_label }}">
-        {%- for side in (1..2) %}
+        {%- for side in (1..2) reversed %}
         <div class="demo-side {% if side == 1 %}bad{% else %}good{% endif %}" aria-hidden="true">
           <p class="demo-cap">{% if side == 1 %}{{ d_bad }}{% else %}{{ d_good }}{% endif %}</p>
           <div class="inv"><div class="pg">
