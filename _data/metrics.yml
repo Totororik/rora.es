@@ -4,8 +4,8 @@ fonts:
   value: { en: "380,849", es: "380.849" }
   label: { en: "unique fonts", es: "fuentes únicas" }
   def:
-    en: "Consolidated from 374,936 font files: copies of one font are counted once."
-    es: "A partir de 374.936 archivos de fuentes: las copias de una misma fuente cuentan una vez."
+    en: "Every font in the collection is unique: exact copies are kept only once, while different versions of a font count separately."
+    es: "Cada fuente de la colección es única: las copias exactas se guardan una sola vez y las distintas versiones de una fuente cuentan por separado."
 fingerprints:
   verified: 2026-11-05
   value: { en: "24.0 M", es: "24,0 M" }
