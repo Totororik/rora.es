@@ -272,6 +272,14 @@ header.top .mark { margin-right: auto; }
   /* 06.11 (хозяин: «язык сделать только глобусом»): на телефоне и планшете — один глобус, без «EN ⌄», как в PDFit */
   .jazyk summary { width: 42px; padding: 0; justify-content: center; }
   .jazyk summary .jazyk-kod, .jazyk summary .ug { display: none; }
+  /* 06.11 (хозяин: «шапки разные!»): на телефоне шапка как у PDFit, «Разрезать», AnyColor — три круглые кнопки 36 точек,
+     тот же фон и обводка (menju_servisov.html, .jazyk в fixik_web.html); знак в одну строку */
+  header.top { gap: 8px; }
+  .mark span:first-child { white-space: nowrap; }
+  .kabinet, .jazyk summary, .menu summary { width: 36px; height: 36px; border-radius: 999px; background: rgba(255,255,255,.04);
+    border-color: rgba(255,255,255,.2); }
+  .menu summary svg { width: 18px; height: 18px; }
+  .kabinet svg, .jazyk summary svg { width: 16px; height: 16px; }
 }
 /* 06.11 (хозяин: «человека добавить»): личный кабинет — круглая кнопка со значком, как язык */
 .kabinet { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 999px; flex: none;
