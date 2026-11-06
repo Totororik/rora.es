@@ -12,8 +12,8 @@
   name: "AURORA Split PDF"
   audience: people
   status: live
-  href: { en: "/razrezat-pdf/", es: "/razrezat-pdf/?lang=es" }
-  page: { en: "/razrezat-pdf/", es: "/razrezat-pdf/?lang=es" }
+  href: { en: "https://pdfit.rora.es/razrezat-pdf/?lang=en", es: "https://pdfit.rora.es/razrezat-pdf/?lang=es" }
+  page: { en: "https://pdfit.rora.es/razrezat-pdf/?lang=en", es: "https://pdfit.rora.es/razrezat-pdf/?lang=es" }
   action: { en: "Split a PDF", es: "Divide un PDF" }
   short: { en: "Save chosen pages as separate PDFs", es: "Guarda las páginas que elijas como PDF separados" }
   icon: '<circle cx="11" cy="12" r="4"/><circle cx="11" cy="28" r="4"/><path d="M14 14.5L34 30M14 25.5L34 10"/>'
