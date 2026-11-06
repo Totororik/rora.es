@@ -1,7 +1,7 @@
 # one source for every number on the site; "verified" is the date the number was last checked against our own records
 fonts:
-  verified: 2026-11-05
-  value: { en: "380,849", es: "380.849" }
+  verified: 2026-11-06
+  value: { en: "257,333", es: "257.333" }
   label: { en: "unique fonts", es: "fuentes únicas" }
   def:
     en: "Every font in the collection is unique: exact copies are kept only once, while different versions of a font count separately."
