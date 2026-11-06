@@ -35,6 +35,42 @@
     return lines;
   }
 
+  // camera (06.11): when an invoice is shown through a short window (phone: only part of the page fits), the window
+  // glides to the line being typed — the start of its block stays in view while it fits, then the newest line does.
+  // If the whole page fits (desktop), there is nowhere to move and nothing happens.
+  var AIR = 0.3, MARGIN = 10, GLIDE = 650; // share of the window kept above the block (where on the page we are); px under the line; ms
+  function glide(inv, to) {
+    to = Math.max(0, Math.min(to, inv.scrollHeight - inv.clientHeight));
+    var from = inv.scrollTop, t0 = null;
+    inv._glide = (inv._glide || 0) + 1;
+    var mine = inv._glide;
+    if (Math.abs(to - from) < 1) return Promise.resolve();
+    return new Promise(function (ok) {
+      function step(t) {
+        if (mine !== inv._glide) return ok();          // a newer glide took over
+        if (t0 === null) t0 = t;
+        var x = Math.min(1, (t - t0) / GLIDE), e = x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        inv.scrollTop = from + (to - from) * e;
+        if (x < 1) requestAnimationFrame(step); else ok();
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  function follow(lines) {
+    return Promise.all(lines.map(function (line) {
+      var inv = line.closest('.inv');
+      if (!inv || inv.scrollHeight <= inv.clientHeight + 2) return Promise.resolve();
+      var r0 = inv.getBoundingClientRect().top - inv.scrollTop;
+      var block = line.closest('.gr') || line.parentNode;
+      var top = block.getBoundingClientRect().top - r0 - inv.clientHeight * AIR;
+      var bottom = line.getBoundingClientRect().bottom - r0 + MARGIN;
+      return glide(inv, bottom - top > inv.clientHeight ? bottom - inv.clientHeight : top);
+    }));
+  }
+  function home(demo) {
+    return Promise.all(Array.prototype.map.call(demo.querySelectorAll('.inv'), function (inv) { return glide(inv, 0); }));
+  }
+
   async function invoice(demo) {
     each(demo.querySelectorAll('.inv'), fitPoints);
     var top = demo.querySelectorAll('.e1'), tip = demo.querySelectorAll('.e3'), table = demo.querySelectorAll('.e2');
@@ -42,19 +78,25 @@
       each(top, function (b) { b.textContent = ''; });
       each(table, function (b) { b.textContent = ''; });
       each(tip, function (b) { each(b.querySelectorAll('div:not(.keep)'), function (d) { d.remove(); }); });
+      await home(demo);
       await wait(1500);
       for (var i = 0; i < TOP.length; i++) {
-        await typeInto(newLine(top), TOP[i]);
+        var l1 = newLine(top);
+        if (i === 0) await follow(l1); else follow(l1);
+        await typeInto(l1, TOP[i]);
         await wait(350);
       }
       await wait(900);
       for (var t = 0; t < TIP.length; t++) {
-        await typeInto(newLine(tip), TIP[t]);
+        var l3 = newLine(tip);
+        if (t === 0) await follow(l3); else follow(l3);   // first line of a block: wait until the camera is there
+        await typeInto(l3, TIP[t]);
         await wait(300);
       }
       await wait(900);
       for (var j = 0; j < ROWS.length; j++) {
         var rows = newLine(table);
+        if (j === 0) await follow(rows); else follow(rows);
         await typeInto(rows, ROWS[j][0]);
         await typeInto(rows, ROWS[j][1]);
         await wait(350);
