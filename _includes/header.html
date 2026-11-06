@@ -19,7 +19,8 @@
       <summary aria-label="{{ T.menu }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary>
       <div class="menu-panel">
         <div><b>{{ T.personal_tools }}</b>
-          {%- for p in site.data.products %}{% if p.audience == "people" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}
+          {%- comment %} 06.11 (хозяин): в бургере — все 4 сервиса, ссылка прямо в сервис, название — действие {% endcomment %}
+          {%- for p in site.data.products %}{% if p.audience == "people" %}<a href="{{ p.href[L] }}">{{ p.action[L] }}</a>{% endif %}{% endfor %}
           <a href="{{ P }}/individuals/">{{ T.people }} →</a></div>
         <div><b>{{ T.business_tech }}</b>
           {%- for p in site.data.products %}{% if p.audience == "business" %}<a href="{{ p.page[L] }}">{{ p.name }}</a>{% endif %}{% endfor %}
