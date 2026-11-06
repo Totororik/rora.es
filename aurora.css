@@ -163,7 +163,11 @@ footer a:hover { color: var(--ink); }
   .btn { width: 100%; justify-content: center; }
   .mark { flex-direction: column; }
   .mark .tagline { padding-left: 0; border-left: 0; font-size: .78rem; }
-  h1 { font-size: min(2.4rem, 8.4vw); }
+  /* 06.11 (хозяин): на телефоне заголовок на 10 % меньше (было min(2.4rem, 8.4vw)) и чуть выше; над плитками «для себя»
+     ни подзаголовка, ни строки под ним — сразу кнопки сервисов (страница «For individuals» — в меню) */
+  h1 { font-size: min(2.16rem, 7.56vw); }
+  .hero { padding-top: clamp(8px, 3vh, 32px); }
+  .g-people > h2, .g-people > .sub { display: none; }
   h1 .w.long { display: none; }
   h1 .w.short { display: inline-block; }
 }
