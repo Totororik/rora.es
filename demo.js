@@ -71,11 +71,42 @@
     return Promise.all(Array.prototype.map.call(demo.querySelectorAll('.inv'), function (inv) { return glide(inv, 0); }));
   }
 
+  // 17.11 chart that grows (pages with .graf only): --s on the chart = new height / old height; --gd on the page =
+  // points taken from the free space above the footer, so the page keeps its height
+  // 17.11 (rule 2.11): the chart has bands under its scale lines (.graf); each band opens by BAND_GROW points, then a
+  // word is typed into it (same left edge and size as the scale labels). --s on a band = new height / old height;
+  // --gd on the page = all points opened, taken from the free space above the footer — the page keeps its height
+  var BAND_GROW = 15; // PDF points per band
+  function setBand(demo, band, d) {
+    var h = parseFloat(getComputedStyle(band).getPropertyValue('--h')) || 20;
+    band._d = d;
+    band.style.setProperty('--s', (h + d) / h);
+    var sum = 0;
+    each(demo.querySelectorAll('.graf'), function (g) { sum += g._d || 0; });
+    each(demo.querySelectorAll('.pg'), function (pg) { pg.style.setProperty('--gd', sum); });
+  }
+  function setChart(demo, d) { each(demo.querySelectorAll('.graf'), function (g) { setBand(demo, g, d); }); }
+  function growBand(demo, band, to, ms) {
+    return new Promise(function (ok) {
+      var t0 = null;
+      function step(t) {
+        if (t0 === null) t0 = t;
+        var x = Math.min(1, (t - t0) / ms), e = x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+        setBand(demo, band, to * e);
+        if (x < 1) requestAnimationFrame(step); else ok();
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var BAND_WORDS = ['Consumo máximo', 'Consumo medio']; // longer than the labels — they reach a bit under the line
+
   async function invoice(demo) {
     each(demo.querySelectorAll('.inv'), fitPoints);
     var top = demo.querySelectorAll('.e1'), tip = demo.querySelectorAll('.e3'), table = demo.querySelectorAll('.e2');
     for (;;) {
       each(top, function (b) { b.textContent = ''; });
+      setChart(demo, 0);
+      each(demo.querySelectorAll('.graf-podpis'), function (b) { b.textContent = ''; });
       each(table, function (b) { b.textContent = ''; });
       each(tip, function (b) { each(b.querySelectorAll('div:not(.keep)'), function (d) { d.remove(); }); });
       await home(demo);
@@ -100,6 +131,18 @@
         await typeInto(rows, ROWS[j][0]);
         await typeInto(rows, ROWS[j][1]);
         await wait(350);
+      }
+      // 17.11 (rule 2.11): then the chart above the table, band by band: the frame shows, the band under the scale
+      // line opens (the chart grows, the table moves down), and only then the word appears in it
+      var bands = demo.querySelectorAll('.graf');
+      for (var b = 0; b < bands.length; b++) {
+        await wait(b === 0 ? 700 : 400);
+        bands[b].classList.add('enter');
+        await wait(500);
+        await growBand(demo, bands[b], BAND_GROW, 700);
+        await typeInto(bands[b].querySelectorAll('.graf-podpis'), BAND_WORDS[b % BAND_WORDS.length]);
+        await wait(500);
+        bands[b].classList.remove('enter');
       }
       await wait(4500);
     }
